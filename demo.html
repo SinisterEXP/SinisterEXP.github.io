@@ -1,1 +1,221 @@
-Check Back Later
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+        <title>SinisterEXP - Portfolio</title>
+        <style>
+            :root {
+                --wfa: -webkit-fill-available;
+                /* --font-family: 'Segoe UI', Arial, sans-serif; */
+                --font-family: "Uncial Antiqua", system-ui;
+                --app-bg: rgba(34, 34, 34, 0.8);
+                --color-1: #d7c325;
+                --color-2: #181818;
+                --color-3: #f4f4f4;
+                --color-4: #cccccc;
+                --color-5: #2a2720;
+                --color-6: #20201e;
+            }
+            body {
+                font-family: var(--font-family);
+                color: var(--color-3);
+                margin: 0;
+                padding: 0;
+            }
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+
+                background-image: url("assets/images/sinister-exp-bg-1.png");
+                background-size: cover;
+                background-position: center;
+
+                transform: translateZ(0);
+                will-change: transform;
+
+                z-index: -1;
+            }
+            body::after {
+                content: "";
+                position: fixed;
+                inset: 0;
+
+                background: linear-gradient(to bottom, rgba(15, 20, 15, 0.75), rgba(10, 10, 10, 0.5));
+
+                z-index: -1;
+                pointer-events: none;
+            }
+
+            #app {
+                max-width: 700px;
+                margin: 2rem auto;
+                background: var(--app-bg);
+                border-radius: 12px;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                padding: 2rem;
+            }
+            header {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            #profile-pic {
+                width: 120px;
+                height: 120px;
+                border-radius: 5%;
+                object-fit: cover;
+                margin-bottom: 0;
+                border: 3px solid var(--color-6);
+            }
+            #actor-title {
+                font-size: 2rem;
+                margin: 0;
+            }
+            #actor-name {
+                font-size: 1.2rem;
+                margin: 0;
+            }
+            #subtitle {
+                font-size: 1rem;
+                margin: 0;
+                color: var(--color-1);
+            }
+            #actor-bio {
+                font-size: 1.1rem;
+                margin: 2rem 0;
+                color: var(--color-4);
+            }
+            section {
+                margin-bottom: 2rem;
+            }
+            #demos h2, #contact h2 {
+                margin-bottom: 1rem;
+                color: var(--color-1);
+            }
+            #demo-list {
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            .demo-item {
+                background: #333;
+                border-radius: 8px;
+                padding: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            }
+            .demo-thumb {
+                width: 100px;
+                height: 70px;
+                border-radius: 6px;
+                object-fit: cover;
+                border: 2px solid var(--color-1);
+            }
+            .demo-info {
+                flex: 1;
+            }
+            .demo-title {
+                font-size: 1.1rem;
+                margin: 0;
+                color: #fff;
+            }
+            .demo-description {
+                font-size: 0.9rem;
+                color: #ccc;
+                margin: 0 0 0.3rem 0;
+            }
+            .demo-link {
+                color: var(--color-1);
+                text-decoration: none;
+                font-weight: bold;
+            }
+            .demo-link:hover {
+                text-decoration: underline;
+            }
+            @media (max-width: 600px) {
+                #app {
+                    padding: 1rem;
+                }
+                .demo-item {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .demo-thumb {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <img id="profile-pic" src="assets/images/logo.jpg" alt="Voice Actor Photo">
+                <h1 id="actor-title">SinisterEXP</h1>
+                <h4 id="actor-name">Jason Perkins</h4>
+                <p id="subtitle">Voice Actor | Narrative & Character Performance</p>
+                <p id="actor-bio">
+                    Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />
+                    My work has reached over 1 million impressions online, including over 550,000 views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.
+                </p>
+            </header>
+            <section id="demos">
+                <h2>YouTube Demo Reels</h2>
+                <div id="demo-list"></div>
+            </section>
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+            </section>
+        </div>
+        <script>
+            // Demo data: Replace with actual YouTube demos
+            const demoData = [
+                {
+                    title: "Commercial Demo",
+                    description: "Lorum ipsum",
+                    url: "https://www.youtube.com/watch?v=demo1",
+                    thumb: "https://img.youtube.com/vi/demo1/0.jpg"
+                },
+                {
+                    title: "Animation Demo",
+                    description: "Lorum ipsum",
+                    url: "https://www.youtube.com/watch?v=demo2",
+                    thumb: "https://img.youtube.com/vi/demo2/0.jpg"
+                },
+                {
+                    title: "Narration Demo",
+                    description: "Lorum ipsum",
+                    url: "https://www.youtube.com/watch?v=demo3",
+                    thumb: "https://img.youtube.com/vi/demo3/0.jpg"
+                }
+            ];
+
+            function renderDemos() {
+                const demoList = document.getElementById('demo-list');
+                demoList.innerHTML = '';
+                demoData.forEach(demo => {
+                    const item = document.createElement('div');
+                    item.className = 'demo-item';
+                    item.innerHTML = `
+                        <img class="demo-thumb" src="${demo.thumb}" alt="${demo.title}">
+                        <div class="demo-info">
+                            <div class="demo-title">${demo.title}</div>
+                            <div class="demo-description">${demo.description}</div>
+                            <a class="demo-link" href="${demo.url}" target="_blank">Watch Now</a>
+                        </div>
+                    `;
+                    demoList.appendChild(item);
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', renderDemos);
+        </script>
+    </body>
+</html>
