@@ -290,6 +290,12 @@
             .work-info {
                 flex: 1;
             }
+            .work-info h3 {
+                margin-top: 0;
+            }
+            .work-info p {
+                margin-bottom: 0;
+            }
             @media (max-width: 900px) {
                 .work-item {
                     flex-direction: column;
@@ -312,6 +318,72 @@
                     padding: 0.7rem;
                 }
             }
+            p.copyright {
+                width: var(--wfa);
+                font-size: 0.8rem;
+                color: var(--color-1);
+                margin: 1.5rem 0 0 0;
+                text-align: center;
+                font-style: italic;
+            }
+            #studio-collabs {
+                margin-top: 2rem;
+            }
+            .collab-item {
+                margin-bottom: 1.2rem;
+            }
+            #industry-reviews {
+                margin-top: 2rem;
+            }
+            .review-item {
+                margin-bottom: 1.2rem;
+            }
+            #menu-btn {
+                display: none;
+                position: absolute;
+                top: 1.2rem;
+                right: 1.2rem;
+                background: var(--color-1);
+                color: var(--color-2);
+                border: none;
+                border-radius: 50%;
+                width: 48px;
+                height: 48px;
+                font-size: 2rem;
+                z-index: 100;
+                box-shadow: 0 2px 8px rgba(215,195,37,0.18);
+                cursor: pointer;
+            }
+            #nav-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(34,34,34,0.92);
+                z-index: 200;
+                justify-content: center;
+                align-items: center;
+            }
+            #nav-modal.active {
+                display: flex;
+            }
+            .modal-nav {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                background: var(--color-7);
+                border-radius: 16px;
+                padding: 2.5rem 2rem;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+            }
+            .modal-nav .nav-link {
+                font-size: 1.4rem;
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                text-align: center;
+            }
         </style>
     </head>
 
@@ -324,7 +396,16 @@
                     <h4 id="actor-name">Jason Perkins</h4>
                     <p id="subtitle">Voice Actor | Narrative & Character Performance</p>
                 </div>
+                <button id="menu-btn" aria-label="Open navigation menu">&#9776;</button>
                 <nav id="navbar">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#demos" class="nav-link">Demo Reels</a>
+                    <a href="#pastwork" class="nav-link">Past Work</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
+            <div id="nav-modal">
+                <nav class="modal-nav">
                     <a href="#home" class="nav-link">Home</a>
                     <a href="#demos" class="nav-link">Demo Reels</a>
                     <a href="#pastwork" class="nav-link">Past Work</a>
@@ -341,7 +422,7 @@
             </div>
             <div id="page-demos" class="spa-page" style="display:none">
                 <section id="demos">
-                    <h2>YouTube Demo Reels</h2>
+                    <h2>Demo Reels</h2>
                     <div id="demo-list"></div>
                 </section>
             </div>
@@ -351,6 +432,14 @@
                     <div class="work-list" id="work-list">
                         <!-- JS will render work items here -->
                     </div>
+                    <div id="studio-collabs">
+                        <h2>Studio Collaborations</h2>
+                        <!-- JS will render studio collabs here -->
+                    </div>
+                    <div id="industry-reviews">
+                        <h2>Industry Reviews</h2>
+                        <!-- JS will render industry reviews here -->
+                    </div>
                 </section>
             </div>
             <div id="page-contact" class="spa-page" style="display:none">
@@ -359,6 +448,7 @@
                     <p>Email: <a href="mailto:sinisterexpgaming@outlook.com">sinisterexpgaming@outlook.com</a></p>
                 </section>
             </div>
+            <p class="copyright">&copy; 2026 SinisterEXP (Jason Perkins). All rights reserved.</p>
         </div>
         <script>
             // SPA Hash Router
@@ -373,7 +463,11 @@
                 });
                 if (page === "home") renderAboutBlocks();
                 if (page === "demos") renderDemos();
-                if (page === "pastwork") renderPastWork();
+                if (page === "pastwork") {
+                    renderPastWork();
+                    renderStudioCollabs();
+                    renderIndustryReviews();
+                }
             }
             function handleHash() {
                 const hash = location.hash.replace('#', '').toLowerCase();
@@ -386,18 +480,27 @@
             window.addEventListener('hashchange', handleHash);
             document.addEventListener('DOMContentLoaded', handleHash);
 
+            // Mobile nav modal logic
+            const menuBtn = document.getElementById('menu-btn');
+            const navModal = document.getElementById('nav-modal');
+            menuBtn.addEventListener('click', () => {
+                navModal.classList.add('active');
+            });
+            navModal.addEventListener('click', (e) => {
+                if (e.target === navModal) navModal.classList.remove('active');
+            });
+            navModal.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navModal.classList.remove('active');
+                });
+            });
+
             // Demo data: Replace with actual YouTube demos
             const demoData = [
                 {
                     title: "Extended Orc Character Performance",
                     description: "Primary showcase. Long-form character voice acting demonstrating grit, range, emotional control, and sustained performance.",
                     url: "https://youtube.com/shorts/pWudx83pEO0?si=GLTMD0kfv1zQPhy4",
-                    thumb: "assets/images/thumb-2.png"
-                },
-                {
-                    title: "Sinister Tales Introduction",
-                    description: "Original narration project highlighting atmospheric storytelling, pacing, and tonal depth.",
-                    url: "#",
                     thumb: "assets/images/thumb-2.png"
                 }
             ];
@@ -418,19 +521,49 @@
                 }
             ];
 
-            // Past work data (expandable)
+            // Experience data (expandable)
             const pastWorkData = [
                 {
                     title: "Narrative Voiceover",
                     subtitle: " Independent Film (Paid) 2nd February 2026",
-                    description: `Delivered a short-form narrative voiceover for an independent film project, completed and paid within 24 hours.`,
-                    img: "#"
+                    description: `Delivered a short-form narrative voiceover for an independent film project, completed and paid within 24 hours.`
                 },
                 {
                     title: "Sinister Tales",
                     subtitle: "Original Narration Series",
-                    description: `Creator & Narrator. Dark, atmospheric storytelling project used to develop and showcase narrative and character performance.`,
-                    img: "#"
+                    description: `Creator & Narrator. Dark, atmospheric storytelling project used to develop and showcase narrative and character performance.`
+                }
+            ];
+
+            const studioCollabsData = [
+                {
+                    title: "Maze Theory",
+                    work: [
+                        "Creator partnerships and early-access coverage",
+                        "Bug testing and QA feedback",
+                        "Community moderator on the official Maze Theory Discord",
+                        "Voice acting demo submitted for future casting consideration",
+                        "Peaky Blinders VR – 550,000 views"
+                    ]
+                },
+                {
+                    title: "VRKiwi",
+                    work: [
+                        "Early-access coverage and review work",
+                        "Titles covered include Jolly Roger VR",
+                        "Voice acting demo shared for future role consideration"
+                    ]
+                }
+            ];
+
+            const industryReviewsData = [
+                {
+                    title: "Keymailer",
+                    work: [
+                        "Covered over 15 indie and VR titles",
+                        "Invited to cover Red Bull–sponsored title MAVRIX",
+                        "Provided structured feedback, gameplay coverage, and promotional insight"
+                    ]
                 }
             ];
 
@@ -479,9 +612,6 @@
                     const item = document.createElement('div');
                     item.className = 'work-item';
                     let imgHtml = '';
-                    if (work.img) {
-                        imgHtml = `<img class=\"work-img\" src=\"${work.img}\" alt=\"${work.title}\">`;
-                    }
                     item.innerHTML = `
                         ${imgHtml}
                         <div class=\"work-info\">
@@ -490,6 +620,46 @@
                         </div>
                     `;
                     workList.appendChild(item);
+                });
+            }
+
+            function renderStudioCollabs() {
+                const collabDiv = document.getElementById('studio-collabs');
+                if (!collabDiv) return;
+                collabDiv.innerHTML = '<h2>Studio Collaborations</h2>';
+                studioCollabsData.forEach(collab => {
+                    const item = document.createElement('div');
+                    item.className = 'collab-item';
+                    let worksHtml = '';
+                    if (Array.isArray(collab.work) && collab.work.length > 0) {
+                        worksHtml = '<ul style="margin:0.5em 0 0 1.5em;">';
+                        collab.work.forEach(w => {
+                            worksHtml += `<li>${w}</li>`;
+                        });
+                        worksHtml += '</ul>';
+                    }
+                    item.innerHTML = `<strong>${collab.title}</strong>:${worksHtml}`;
+                    collabDiv.appendChild(item);
+                });
+            }
+
+            function renderIndustryReviews() {
+                const reviewsDiv = document.getElementById('industry-reviews');
+                if (!reviewsDiv) return;
+                reviewsDiv.innerHTML = '<h2>Industry Reviews</h2>';
+                industryReviewsData.forEach(review => {
+                    const item = document.createElement('div');
+                    item.className = 'review-item';
+                    let worksHtml = '';
+                    if (Array.isArray(review.work) && review.work.length > 0) {
+                        worksHtml = '<ul style="margin:0.5em 0 0 1.5em;">';
+                        review.work.forEach(w => {
+                            worksHtml += `<li>${w}</li>`;
+                        });
+                        worksHtml += '</ul>';
+                    }
+                    item.innerHTML = `<strong>"${review.title}"</strong>${worksHtml}`;
+                    reviewsDiv.appendChild(item);
                 });
             }
         </script>
