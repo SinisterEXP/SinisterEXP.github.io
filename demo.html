@@ -5,13 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
         <title>SinisterEXP - Portfolio</title>
         <style>
             :root {
                 --wfa: -webkit-fill-available;
-                /* --font-family: 'Segoe UI', Arial, sans-serif; */
-                --font-family: "Uncial Antiqua", system-ui;
+                --font-family: "Tenor Sans", sans-serif;
                 --app-bg: rgba(34, 34, 34, 0.8);
                 --color-1: #d7c325;
                 --color-2: #181818;
@@ -154,12 +153,34 @@
                 display: flex;
                 flex-direction: row;
                 gap: 1.5rem;
+                flex-wrap: wrap;
             }
-
-            section {
+            .about-block {
+                flex: 1 1 280px;
+                background: var(--color-7);
+                border-radius: 8px;
+                padding: 1.2rem;
                 margin-bottom: 0;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+                color: var(--color-4);
             }
-
+            .about-img {
+                width: 100%;
+                max-width: 320px;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                object-fit: cover;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            }
+            @media (max-width: 900px) {
+                div.about-section {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+                .about-block {
+                    margin-bottom: 1rem;
+                }
+            }
             #home h2,
             #demos h2,
             #contact h2,
@@ -242,19 +263,53 @@
                 transform: scale(0.97);
             }
 
-            @media (max-width: 600px) {
-                #app {
-                    padding: 1rem;
-                }
-
-                .demo-item {
+            .work-list {
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            .work-item {
+                background: var(--color-7);
+                border-radius: 8px;
+                padding: 1.2rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+                color: var(--color-4);
+                display: flex;
+                flex-direction: row;
+                gap: 1.2rem;
+                align-items: flex-start;
+            }
+            .work-img {
+                width: 120px;
+                height: 80px;
+                object-fit: cover;
+                border-radius: 6px;
+                margin-right: 1rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            }
+            .work-info {
+                flex: 1;
+            }
+            @media (max-width: 900px) {
+                .work-item {
                     flex-direction: column;
-                    align-items: flex-start;
+                    gap: 0.7rem;
                 }
-
-                .demo-thumb {
+                .work-img {
                     width: 100%;
                     height: auto;
+                    margin-right: 0;
+                }
+            }
+            @media (max-width: 600px) {
+                #app {
+                    padding: 0.5rem;
+                }
+                .about-block {
+                    padding: 0.7rem;
+                }
+                .work-item {
+                    padding: 0.7rem;
                 }
             }
         </style>
@@ -279,15 +334,8 @@
             <div id="page-home" class="spa-page">
                 <section id="home">
                     <h2>About Me</h2>
-                    <div class="about-section">
-                        <p id="actor-bio">
-                            Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />
-                            My work has reached over 1 million impressions online, including over 550,000 views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.
-                        </p>
-                        <p id="actor-bio">
-                            SinisterEXP (Jason Perkins) is a UK-based voice actor specialising in character-driven and narrative performance.<br /><br />
-                            With a background in digital storytelling and games content, I provide expressive, reliable voice work with fast turnaround and strong creative communication.
-                        </p>
+                    <div class="about-section" id="about-section">
+                        <!-- JS will render about blocks here -->
                     </div>
                 </section>
             </div>
@@ -300,34 +348,15 @@
             <div id="page-pastwork" class="spa-page" style="display:none">
                 <section id="pastwork">
                     <h2>Past Work</h2>
-                    <div class="work-list">
-                        <div class="work-item">
-                            <h3>Peaky Blinders VR</h3>
-                            <p>Lead antagonist voice, immersive VR experience. Over 550,000 views. Collaborated with Maze
-                                Theory to bring a gritty, authentic character to life.</p>
-                        </div>
-                        <div class="work-item">
-                            <h3>Indie Game: "Shadow's Edge"</h3>
-                            <p>Voiced multiple characters, including the mysterious guide and the main villain. Provided
-                                narrative and atmospheric performances for key story moments.</p>
-                        </div>
-                        <div class="work-item">
-                            <h3>Short Film: "The Last Broadcast"</h3>
-                            <p>Narrator and radio host. Set the tone for a suspenseful, post-apocalyptic story.</p>
-                        </div>
-                        <div class="work-item">
-                            <h3>VR Experience: "Dreamscape Noir"</h3>
-                            <p>Detective and supporting cast. Helped create a moody, immersive world through nuanced
-                                character work.</p>
-                        </div>
-                        <!-- Add more work items as needed -->
+                    <div class="work-list" id="work-list">
+                        <!-- JS will render work items here -->
                     </div>
                 </section>
             </div>
             <div id="page-contact" class="spa-page" style="display:none">
                 <section id="contact">
                     <h2>Contact</h2>
-                    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+                    <p>Email: <a href="mailto:sinisterexpgaming@outlook.com">sinisterexpgaming@outlook.com</a></p>
                 </section>
             </div>
         </div>
@@ -342,8 +371,9 @@
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.toggle('active', link.getAttribute('href') === `#${page}`);
                 });
-                // Render demos if on demos page
+                if (page === "home") renderAboutBlocks();
                 if (page === "demos") renderDemos();
+                if (page === "pastwork") renderPastWork();
             }
             function handleHash() {
                 const hash = location.hash.replace('#', '').toLowerCase();
@@ -361,7 +391,7 @@
                 {
                     title: "Extended Orc Character Performance",
                     description: "Primary showcase. Long-form character voice acting demonstrating grit, range, emotional control, and sustained performance.",
-                    url: "#",
+                    url: "https://youtube.com/shorts/pWudx83pEO0?si=GLTMD0kfv1zQPhy4",
                     thumb: "assets/images/thumb-2.png"
                 },
                 {
@@ -372,10 +402,35 @@
                 }
             ];
 
+            // About blocks for home page
+            const aboutBlocks = [
+                {
+                    text: `Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />My work has reached over 1 million impressions online, including over 550,000 views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.`,
+                    img: "assets/images/about-1.jpg"
+                },
+                {
+                    text: `SinisterEXP (Jason Perkins) is a UK-based voice actor specialising in character-driven and narrative performance.<br /><br />With a background in digital storytelling and games content, I provide expressive, reliable voice work with fast turnaround and strong creative communication.`,
+                    img: "assets/images/about-2.jpg"
+                },
+                {
+                    text: `Recent highlights include work for VR, indie games, and short films. I am passionate about bringing unique characters and immersive stories to life.`,
+                    img: "assets/images/about-3.jpg"
+                }
+            ];
+
+            // Past work data (expandable)
             const pastWorkData = [
                 {
-                    title: "Peaky Blinders VR",
-                    description: "Lead antagonist voice, immersive VR experience. Over 550,000 views. Collaborated with Maze Theory to bring a gritty, authentic character to life."
+                    title: "Narrative Voiceover",
+                    subtitle: " Independent Film (Paid) 2nd February 2026",
+                    description: `Delivered a short-form narrative voiceover for an independent film project, completed and paid within 24 hours.`,
+                    img: "#"
+                },
+                {
+                    title: "Sinister Tales",
+                    subtitle: "Original Narration Series",
+                    description: `Creator & Narrator. Dark, atmospheric storytelling project used to develop and showcase narrative and character performance.`,
+                    img: "#"
                 }
             ];
 
@@ -397,6 +452,44 @@
                                 </div>
                             `;
                     demoList.appendChild(item);
+                });
+            }
+
+            function renderAboutBlocks() {
+                const aboutSection = document.getElementById('about-section');
+                if (!aboutSection) return;
+                aboutSection.innerHTML = '';
+                aboutBlocks.forEach(block => {
+                    const div = document.createElement('div');
+                    div.className = 'about-block';
+                    if (block.img) {
+                        div.innerHTML = `<img class=\"about-img\" src=\"${block.img}\" alt=\"About Image\"><div>${block.text}</div>`;
+                    } else {
+                        div.innerHTML = `<div>${block.text}</div>`;
+                    }
+                    aboutSection.appendChild(div);
+                });
+            }
+
+            function renderPastWork() {
+                const workList = document.getElementById('work-list');
+                if (!workList) return;
+                workList.innerHTML = '';
+                pastWorkData.forEach(work => {
+                    const item = document.createElement('div');
+                    item.className = 'work-item';
+                    let imgHtml = '';
+                    if (work.img) {
+                        imgHtml = `<img class=\"work-img\" src=\"${work.img}\" alt=\"${work.title}\">`;
+                    }
+                    item.innerHTML = `
+                        ${imgHtml}
+                        <div class=\"work-info\">
+                            <h3>${work.title}</h3>
+                            <p>${work.description}</p>
+                        </div>
+                    `;
+                    workList.appendChild(item);
                 });
             }
         </script>
