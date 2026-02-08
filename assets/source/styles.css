@@ -434,7 +434,7 @@ p.copyright {
     right: 2rem;
     background: var(--color-1);
     border: none;
-    border-radius: 50%;
+    border-radius: 8px;
     width: 44px;
     height: 44px;
     box-shadow: 0 2px 8px rgba(215, 195, 37, 0.18);
