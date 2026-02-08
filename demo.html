@@ -6,7 +6,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="assets/images/logo.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="https://sinisterexp.github.io/assets/images/logo.ico" type="image/x-icon">
         <title>SinisterEXP - Portfolio</title>
         <style>
             :root {
@@ -168,7 +168,6 @@
             }
             .about-img {
                 width: 100%;
-                max-width: 320px;
                 border-radius: 8px;
                 margin-bottom: 1rem;
                 object-fit: cover;
@@ -437,6 +436,85 @@
                 cursor: pointer;
                 z-index: 1003;
             }
+            #page-contact section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            .contact-info {
+                text-align: left;
+                color: var(--color-4);
+            }
+            .contact-form {
+                background: var(--color-7);
+                border-radius: 10px;
+                padding: 2rem 1.5rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+                max-width: 400px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            .contact-form label {
+                font-weight: bold;
+                color: var(--color-1);
+                margin-bottom: 0.3rem;
+            }
+            .contact-form input,
+            .contact-form textarea {
+                width: var(--wfa);
+                padding: 0.7em;
+                border-radius: 6px;
+                border: 1px solid var(--color-5);
+                background: var(--color-6);
+                color: var(--color-3);
+                font-family: var(--font-family);
+                font-size: 1rem;
+                resize: vertical;
+            }
+            .contact-form textarea {
+                min-height: 90px;
+                max-height: 220px;
+            }
+            .contact-form button {
+                background: linear-gradient(90deg, #d7c325 70%, #3b3733 100%);
+                color: var(--color-2);
+                border: none;
+                border-radius: 6px;
+                padding: 0.7em 1.5em;
+                font-size: 1.1rem;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(215,195,37,0.10);
+                transition: background 0.18s, color 0.18s, transform 0.13s;
+            }
+            .contact-form button:hover {
+                background: linear-gradient(90deg, #fffbe6 60%, #d7c325 100%);
+                color: var(--color-2);
+                transform: translateY(-1px) scale(1.03);
+            }
+            .contact-success {
+                color: #7ed957;
+                font-weight: bold;
+                margin-top: 1rem;
+                text-align: center;
+            }
+            .contact-error {
+                color: #ff4d4d;
+                font-weight: bold;
+                margin-top: 1rem;
+                text-align: center;
+            }
+            .contact-email {
+                color: var(--color-1);
+                text-decoration: none;
+                font-weight: bold;
+            }
+            .contact-email:hover {
+                text-decoration: underline;
+            }
         </style>
     </head>
 
@@ -502,8 +580,21 @@
             </div>
             <div id="page-contact" class="spa-page" style="display:none">
                 <section id="contact">
-                    <h2>Contact</h2>
-                    <p>Email: <a href="mailto:sinisterexpgaming@outlook.com">sinisterexpgaming@outlook.com</a></p>
+                    <div class="contact-info">
+                        <h2>Contact</h2>
+                        <p>Email: <a class="contact-email" href="mailto:sinisterexpgaming@outlook.com">sinisterexpgaming@outlook.com</a></p>
+                        <p>For business, collaboration, or project inquiries, please use the form below or email directly.</p>
+                    </div>
+                    <form class="contact-form" id="contact-form" autocomplete="off">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" name="name" required maxlength="60" placeholder="Your name">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" name="email" required maxlength="80" placeholder="your@email.com">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" required maxlength="1000" placeholder="How can I help you?"></textarea>
+                        <button type="submit">Send Message</button>
+                        <div id="contact-status"></div>
+                    </form>
                 </section>
             </div>
             <p class="copyright">&copy; 2026 SinisterEXP (Jason Perkins).<br />All rights reserved.</p>
@@ -538,33 +629,39 @@
             window.addEventListener('hashchange', handleHash);
             document.addEventListener('DOMContentLoaded', handleHash);
 
-            // Demo data: Replace with actual YouTube demos
+            // Demo data: Add Your YouTube Demos Here
             const demoData = [
                 {
                     title: "Extended Orc Character Performance",
                     description: "Primary showcase. Long-form character voice acting demonstrating grit, range, emotional control, and sustained performance.",
                     url: "https://youtube.com/shorts/pWudx83pEO0?si=GLTMD0kfv1zQPhy4",
-                    thumb: "assets/images/thumb-2.png"
+                    thumb: "assets/images/demo-thumb-1.jpg"
+                },
+                {
+                    title: "Character Voice Acting Demo (2025)",
+                    description: "My official 2025 Voice Acting Demo — featuring 5 original characters across fantasy, horror, and cinematic genres.",
+                    url: "https://www.youtube.com/watch?v=WYjLp9mz4Ew",
+                    thumb: "assets/images/demo-thumb-2.jpg"
                 }
             ];
 
-            // About blocks for home page
+            // About blocks for Home Page
             const aboutBlocks = [
                 {
                     text: `Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />My work has reached over 1 million impressions online, including over 550,000 views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.`,
-                    img: "assets/images/about-1.jpg"
+                    img: "assets/images/jason.png"
                 },
                 {
                     text: `SinisterEXP (Jason Perkins) is a UK-based voice actor specialising in character-driven and narrative performance.<br /><br />With a background in digital storytelling and games content, I provide expressive, reliable voice work with fast turnaround and strong creative communication.`,
-                    img: "assets/images/about-2.jpg"
+                    img: "assets/images/about.png"
                 },
                 {
                     text: `Recent projects include work for VR, indie games, and short films. I am passionate about bringing unique characters and immersive stories to life.`,
-                    img: "assets/images/about-3.jpg"
+                    img: "assets/images/about-2.png"
                 }
             ];
 
-            // Experience data (expandable)
+            // Experience data: Add More Past Work Here
             const pastWorkData = [
                 {
                     title: "Narrative Voiceover",
@@ -578,6 +675,7 @@
                 }
             ];
 
+            // Experience data: Add More Studio Collaborations Here
             const studioCollabsData = [
                 {
                     title: "Maze Theory",
@@ -599,6 +697,7 @@
                 }
             ];
 
+            // Experience data: Add More Industry Reviews Here
             const industryReviewsData = [
                 {
                     title: "Keymailer",
@@ -620,7 +719,7 @@
                     item.innerHTML = `
                                 <div class="demo-box">
                                     <img class="demo-thumb" src="${demo.thumb}" alt="${demo.title}">
-                                    <a class="demo-link" href="#" target="_blank">Watch Now</a>
+                                    <a class="demo-link" href="${demo.url}" target="_blank">Watch Now</a>
                                 </div>
                                 <div class="demo-info">
                                     <div class="demo-title">${demo.title}</div>
@@ -701,7 +800,7 @@
                         });
                         worksHtml += '</ul>';
                     }
-                    item.innerHTML = `<strong>"${review.title}"</strong>${worksHtml}`;
+                    item.innerHTML = `<strong>${review.title}</strong>${worksHtml}`;
                     reviewsDiv.appendChild(item);
                 });
             }
@@ -725,6 +824,32 @@
                     navModal.classList.remove('active');
                 });
             });
+
+            // Contact form logic
+            const contactEmailAddress = "sinisterexpgaming@outlook.com";
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('contact-name').value.trim();
+                    const email = document.getElementById('contact-email').value.trim();
+                    const message = document.getElementById('contact-message').value.trim();
+                    const statusDiv = document.getElementById('contact-status');
+                    statusDiv.textContent = '';
+                    if (!name || !email || !message) {
+                        statusDiv.textContent = 'Please fill in all fields.';
+                        statusDiv.className = 'contact-error';
+                        return;
+                    }
+                    // Compose mailto link
+                    const subject = encodeURIComponent('Portfolio Contact Form Submission');
+                    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage:\n${message}`);
+                    const mailtoLink = `mailto:${contactEmailAddress}?subject=${subject}&body=${body}`;
+                    window.location.href = mailtoLink;
+                    statusDiv.textContent = 'Opening your email client...';
+                    statusDiv.className = 'contact-success';
+                });
+            }
         </script>
     </body>
 </html>
