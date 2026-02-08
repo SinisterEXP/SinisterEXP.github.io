@@ -1,35 +1,137 @@
-<html>
-  <head>
-    <title>SinisterEXP</title>
-    <style>
-      :root {
-        --wfa: -webkit-fill-available;
-        --font-family: sans-serif;
-        --color-1: #000000;
-      }
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- OG Meta Tags -->
+        <meta property="og:title" content="SinisterEXP - Portfolio" />
+        <meta property="og:description" content="Explore the voice acting portfolio of SinisterEXP (Jason Perkins), showcasing demo reels, past work, and industry collaborations in narrative and character performance." />
+        <meta property="og:image" content="https://sinisterexp.github.io/assets/images/sinister-exp-bg-1.png" />
+        <!-- Twitter Card Meta Tags -->
+        <meta property="twitter:title" content="SinisterEXP - Portfolio" />
+        <meta property="twitter:description" content="Explore the voice acting portfolio of SinisterEXP (Jason Perkins), showcasing demo reels, past work, and industry collaborations in narrative and character performance." />
+        <meta property="twitter:image" content="https://sinisterexp.github.io/assets/images/sinister-exp-bg-1.png" />
 
-      body {
-        font-family: var(--font-family);
-        color: var(--color-1);
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        width: var(--wfa);
-      }
-      main {
-        width: var(--wfa);
-      }
-      footer {
-        width: var(--wfa);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>SinisterEXP</h1>
-    </header>
-    <main></main>
-    <footer></footer>
-  </body>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="https://sinisterexp.github.io/assets/images/site-icon.png" />
+        <title>SinisterEXP - Portfolio</title>
+        <link rel="stylesheet" href="assets/source/styles.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <div class="top-bar">
+                <div class="site-branding">
+                    <img id="profile-pic" src="assets/images/logo.jpg" alt="Voice Actor Photo">
+                    <h1 id="actor-title">SinisterEXP</h1>
+                    <h4 id="actor-name">Jason Perkins</h4>
+                    <p id="subtitle">Voice Actor | Narrative & Character Performance</p>
+                </div>
+                <button id="menu-btn" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav id="navbar">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#demos" class="nav-link">Demo Reels</a>
+                    <a href="#pastwork" class="nav-link">Past Work</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
+            <div id="nav-modal">
+                <button id="nav-modal-close" aria-label="Close menu">&times;</button>
+                <nav class="modal-nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#demos" class="nav-link">Demo Reels</a>
+                    <a href="#pastwork" class="nav-link">Past Work</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
+            <div id="page-home" class="spa-page">
+                <section id="home">
+                    <h2>About Me</h2>
+                    <div class="about-section" id="about-section">
+                        <!-- JS will render about blocks here -->
+                    </div>
+                </section>
+            </div>
+            <div id="page-demos" class="spa-page" style="display:none">
+                <section id="demos">
+                    <h2>Demo Reels</h2>
+                    <div id="demo-list"></div>
+                </section>
+            </div>
+            <div id="page-pastwork" class="spa-page" style="display:none">
+                <section id="pastwork">
+                    <h2>Past Work</h2>
+                    <div class="work-list" id="work-list">
+                        <!-- JS will render work items here -->
+                    </div>
+                    <div id="studio-collabs">
+                        <h2>Studio Collaborations</h2>
+                        <!-- JS will render studio collabs here -->
+                    </div>
+                    <div id="industry-reviews">
+                        <h2>Industry Reviews</h2>
+                        <!-- JS will render industry reviews here -->
+                    </div>
+                </section>
+            </div>
+            <div id="page-contact" class="spa-page" style="display:none">
+                <section id="contact">
+                    <div class="contact-info">
+                        <h2>Contact</h2>
+                        <p>Email: <a class="contact-email"
+                                href="mailto:sinisterexpgaming@outlook.com">sinisterexpgaming@outlook.com</a></p>
+                        <p>For business, collaboration, or project inquiries, please use the form below or email directly.
+                        </p>
+                    </div>
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="21dc7e76-4c12-4ec6-943f-955d05868c9b">
+                        <label for="contact-name">Name</label>
+                        <input type="text" name="name" required placeholder="Your name">
+                        <label for="contact-email">Email</label>
+                        <input type="email" name="email" required placeholder="Your email">
+                        <label for="contact-message">Message</label>
+                        <textarea name="message" required placeholder="How can I help you?"></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </section>
+            </div>
+            <div class="socials">
+                <div class="social-items">
+                    <div class="social-item">
+                        <a href="https://www.facebook.com/profile.php?id=61555033747994" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#919191" className="bi bi-facebook" viewBox="0 0 24 24" id="Facebook--Streamline-Bootstrap" height={24} width={24}>
+                                <desc>Facebook Icon</desc>
+                                <path d="M24 12.0735c0 -6.669 -5.372999999999999 -12.075000000000001 -12 -12.075000000000001C5.37 0 -0.003 5.4045000000000005 -0.003 12.075000000000001c0 6.025500000000001 4.389 11.0205 10.125 11.926499999999999v-8.4375h-3.045V12.075000000000001H10.125V9.412500000000001c0 -3.0255 1.7925 -4.6964999999999995 4.5329999999999995 -4.6964999999999995 1.314 0 2.6864999999999997 0.2355 2.6864999999999997 0.2355v2.9699999999999998h-1.5134999999999998c-1.4895 0 -1.9545 0.9315 -1.9545 1.887v2.265h3.327l-0.5309999999999999 3.489H13.875V24c5.736 -0.9059999999999999 10.125 -5.901 10.125 -11.926499999999999" strokeWidth={1.5} />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="social-item">
+                        <a href="https://www.youtube.com/@sinisterexpgaming9213" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#919191" className="bi bi-youtube" viewBox="0 0 24 24" id="Youtube--Streamline-Bootstrap" height={24} width={24}>
+                                <desc>Youtube Icon</desc>
+                                <path d="M12.0765 2.9985h0.1335c1.2329999999999999 0.0045000000000000005 7.4805 0.0495 9.165000000000001 0.5025000000000001a3.0149999999999997 3.0149999999999997 0 0 1 2.1225 2.13c0.15150000000000002 0.5700000000000001 0.258 1.3245 0.33 2.1029999999999998l0.015 0.156 0.033 0.39 0.012 0.156c0.0975 1.371 0.10949999999999999 2.6550000000000002 0.11099999999999999 2.9355v0.11249999999999999c-0.0015 0.29100000000000004 -0.015 1.6620000000000001 -0.123 3.09l-0.012 0.1575 -0.013499999999999998 0.156c-0.07500000000000001 0.8579999999999999 -0.186 1.71 -0.3525 2.337a3.0149999999999997 3.0149999999999997 0 0 1 -2.1225 2.13c-1.7399999999999998 0.46799999999999997 -8.3535 0.501 -9.27 0.5025000000000001h-0.21299999999999997c-0.4635 0 -2.3805 -0.009000000000000001 -4.3905 -0.078l-0.255 -0.009000000000000001 -0.1305 -0.006 -0.2565 -0.0105 -0.2565 -0.0105c-1.665 -0.07350000000000001 -3.2504999999999997 -0.192 -3.981 -0.39a3.0149999999999997 3.0149999999999997 0 0 1 -2.1225 -2.1285c-0.1665 -0.6255 -0.27749999999999997 -1.479 -0.3525 -2.337L0.135 14.73l-0.012 -0.156A46.5 46.5 0 0 1 0 11.52v-0.1845c0.003 -0.3225 0.015 -1.4369999999999998 0.096 -2.667l0.0105 -0.1545 0.0045000000000000005 -0.078 0.012 -0.156 0.033 -0.39 0.015 -0.156c0.07200000000000001 -0.7785 0.1785 -1.5345 0.33 -2.1029999999999998a3.0149999999999997 3.0149999999999997 0 0 1 2.1225 -2.13c0.7304999999999999 -0.195 2.316 -0.315 3.981 -0.39l0.255 -0.0105 0.258 -0.009000000000000001 0.129 -0.0045000000000000005 0.2565 -0.0105A150 150 0 0 1 11.786999999999999 3zM9.600000000000001 7.8134999999999994v7.226999999999999l6.2355 -3.612z" strokeWidth={1.5} />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="social-item">
+                        <a href="https://www.tiktok.com/@sinisterexp" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#919191" className="bi bi-tiktok" viewBox="0 0 24 24" id="Tiktok--Streamline-Bootstrap" height={24} width={24}>
+                                <desc>Tiktok Icon</desc>
+                                <path d="M13.5 0h2.9699999999999998c0.21599999999999997 1.0725 0.81 2.4255 1.8525 3.768C19.3425 5.0835 20.695500000000003 6 22.5 6v3c-2.6294999999999997 0 -4.6049999999999995 -1.2209999999999999 -6 -2.7435V16.5a7.5 7.5 0 1 1 -7.5 -7.5v3a4.5 4.5 0 1 0 4.5 4.5z" strokeWidth={1.5} />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026 SinisterEXP (Jason Perkins).<br />All rights reserved.</p>
+        </div>
+        <script src="assets/source/main.js"></script>
+    </body>
 </html>
