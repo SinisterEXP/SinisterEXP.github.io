@@ -646,8 +646,9 @@ form[action*="web3forms"] button {
 
 .contact-form button:hover,
 form[action*="web3forms"] button:hover {
-    background: linear-gradient(90deg, #fffbe6 60%, #d7c325 100%);
-    color: var(--color-2);
+    background: linear-gradient(90deg, #282726 70%, #d7c325 100%);
+    color: var(--color-1);
+    border: solid 1px;
     transform: translateY(-1px) scale(1.03);
 }
 
