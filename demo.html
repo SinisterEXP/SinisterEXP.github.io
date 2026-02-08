@@ -310,6 +310,12 @@
                     height: auto;
                     margin-right: 0;
                 }
+                .demo-item {
+                    display: block;
+                }
+                .demo-info {
+                    margin-top: 0.8rem;
+                }
             }
             @media (max-width: 600px) {
                 #app {
@@ -320,6 +326,12 @@
                 }
                 .work-item {
                     padding: 0.7rem;
+                }
+                .demo-item {
+                    display: block;
+                }
+                .demo-info {
+                    margin-top: 0.8rem;
                 }
             }
             p.copyright {
@@ -351,6 +363,12 @@
                 }
                 #menu-btn {
                     display: block !important;
+                }
+                .demo-item {
+                    display: block;
+                }
+                .demo-info {
+                    margin-top: 0.8rem;
                 }
             }
             #menu-btn {
@@ -495,6 +513,64 @@
                 color: var(--color-2);
                 transform: translateY(-1px) scale(1.03);
             }
+            /* Style for both contact forms */
+            .contact-form, form[action*="web3forms"] {
+                background: var(--color-7);
+                border-radius: 10px;
+                padding: 2rem 1.5rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+                width: var(--wfa);
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .contact-form label,
+            form[action*="web3forms"] label {
+                font-weight: bold;
+                color: var(--color-1);
+                margin-bottom: 0.5rem;
+            }
+            .contact-form input,
+            .contact-form textarea,
+            form[action*="web3forms"] input,
+            form[action*="web3forms"] textarea {
+                width: var(--wfa);
+                padding: 0.7em;
+                border-radius: 6px;
+                border: 1px solid var(--color-5);
+                background: var(--color-6);
+                color: var(--color-3);
+                font-family: var(--font-family);
+                font-size: 1rem;
+                resize: vertical;
+                margin-bottom: 1rem;
+            }
+            .contact-form textarea,
+            form[action*="web3forms"] textarea {
+                min-height: 90px;
+                max-height: 220px;
+            }
+            .contact-form button,
+            form[action*="web3forms"] button {
+                background: linear-gradient(90deg, #d7c325 70%, #3b3733 100%);
+                color: var(--color-2);
+                border: none;
+                border-radius: 6px;
+                padding: 0.7em 1.5em;
+                font-size: 1.1rem;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(215,195,37,0.10);
+                transition: background 0.18s, color 0.18s, transform 0.13s;
+            }
+            .contact-form button:hover,
+            form[action*="web3forms"] button:hover {
+                background: linear-gradient(90deg, #fffbe6 60%, #d7c325 100%);
+                color: var(--color-2);
+                transform: translateY(-1px) scale(1.03);
+            }
             .contact-success {
                 color: #7ed957;
                 font-weight: bold;
@@ -585,15 +661,15 @@
                         <p>Email: <a class="contact-email" href="mailto:sinisterexpgaming@outlook.com">sinisterexpgaming@outlook.com</a></p>
                         <p>For business, collaboration, or project inquiries, please use the form below or email directly.</p>
                     </div>
-                    <form class="contact-form" id="contact-form" autocomplete="off">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="21dc7e76-4c12-4ec6-943f-955d05868c9b">
                         <label for="contact-name">Name</label>
-                        <input type="text" id="contact-name" name="name" required maxlength="60" placeholder="Your name">
+                        <input type="text" name="name" required placeholder="Your name">
                         <label for="contact-email">Email</label>
-                        <input type="email" id="contact-email" name="email" required maxlength="80" placeholder="your@email.com">
+                        <input type="email" name="email" required placeholder="Your email">
                         <label for="contact-message">Message</label>
-                        <textarea id="contact-message" name="message" required maxlength="1000" placeholder="How can I help you?"></textarea>
+                        <textarea name="message" required placeholder="How can I help you?"></textarea>
                         <button type="submit">Send Message</button>
-                        <div id="contact-status"></div>
                     </form>
                 </section>
             </div>
@@ -824,32 +900,6 @@
                     navModal.classList.remove('active');
                 });
             });
-
-            // Contact form logic
-            const contactEmailAddress = "sinisterexpgaming@outlook.com";
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const name = document.getElementById('contact-name').value.trim();
-                    const email = document.getElementById('contact-email').value.trim();
-                    const message = document.getElementById('contact-message').value.trim();
-                    const statusDiv = document.getElementById('contact-status');
-                    statusDiv.textContent = '';
-                    if (!name || !email || !message) {
-                        statusDiv.textContent = 'Please fill in all fields.';
-                        statusDiv.className = 'contact-error';
-                        return;
-                    }
-                    // Compose mailto link
-                    const subject = encodeURIComponent('Portfolio Contact Form Submission');
-                    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage:\n${message}`);
-                    const mailtoLink = `mailto:${contactEmailAddress}?subject=${subject}&body=${body}`;
-                    window.location.href = mailtoLink;
-                    statusDiv.textContent = 'Opening your email client...';
-                    statusDiv.className = 'contact-success';
-                });
-            }
         </script>
     </body>
 </html>
