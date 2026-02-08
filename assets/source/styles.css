@@ -23,7 +23,7 @@ body::before {
     position: fixed;
     inset: 0;
 
-    background-image: url("assets/images/sinister-exp-bg-1.png");
+    background-image: url("https://sinisterexp.github.io/assets/images/sinister-exp-bg-1.png");
     background-size: cover;
     background-position: center;
 
@@ -373,7 +373,7 @@ p.copyright {
     width: var(--wfa);
     font-size: 0.8rem;
     color: var(--color-1);
-    margin: 1.5rem 0 0 0;
+    margin: 0.5rem 0 0 0;
     text-align: center;
     font-style: italic;
 }
@@ -676,6 +676,7 @@ form[action*="web3forms"] button:hover {
 }
 
 .socials {
+    margin-top: 1rem;
     width: var(--wfa);
     color: var(--color-4);
 }
