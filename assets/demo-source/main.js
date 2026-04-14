@@ -160,7 +160,7 @@ function renderAboutBlocks() {
             }
             
             if (embedUrl) {
-                div.innerHTML = `<iframe class="about-video" width="100%" height="315" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                div.innerHTML = `<iframe class="about-video" style="width: var(--wfa); height: var(--wfa);" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
             }
         } else if (block.img || block.text) {
             // Handle text + image block (original format)
