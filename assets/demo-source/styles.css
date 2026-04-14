@@ -156,6 +156,7 @@ div.about-section {
     margin-bottom: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
     color: var(--color-4);
+    font-weight: bold;
 }
 
 .about-img {
@@ -168,8 +169,8 @@ div.about-section {
 
 .about-video {
     width: 100%;
+    height: var(--wfa);
     border-radius: 8px;
-    margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
 }
 
@@ -237,6 +238,7 @@ div.about-section {
 .demo-info {
     flex: 1;
     height: var(--wfa);
+    font-weight: bold;
 }
 
 .demo-title {
@@ -316,6 +318,7 @@ div.about-section {
 
 .work-info p {
     margin-bottom: 0;
+    font-weight: bold;
 }
 
 @media (max-width: 900px) {
@@ -549,6 +552,10 @@ p.copyright {
 .contact-info {
     text-align: left;
     color: var(--color-4);
+}
+
+.contact-info p {
+    font-weight: bold;
 }
 
 .contact-form {
