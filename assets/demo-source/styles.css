@@ -157,6 +157,8 @@ div.about-section {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
     color: var(--color-4);
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-img {
@@ -169,7 +171,7 @@ div.about-section {
 
 .about-video {
     width: 100%;
-    height: var(--wfa);
+    flex: 1;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
 }
