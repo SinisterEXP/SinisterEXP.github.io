@@ -55,7 +55,7 @@ const aboutBlocks = [
     },
     {
         text: `Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />My work has reached over 1.5 million impressions online, including over 1 million views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.`,
-        img: "assets/images/about.png"
+        img: "assets/images/vabg-1.jpg"
     }
 ];
 
