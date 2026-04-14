@@ -46,16 +46,15 @@ const demoData = [
 // About blocks for Home Page
 const aboutBlocks = [
     {
-        text: `Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />My work has reached over 1 million impressions online, including over 550,000 views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.`,
-        img: "assets/images/about.png"
+        videoUrl: "https://www.youtube.com/embed/a3FAhxzjhnc?si=5OamHFpo0bMiFY9q"
     },
     {
         text: `SinisterEXP (Jason Perkins) is a UK-based voice actor specialising in character-driven and narrative performance.<br /><br />With a background in digital storytelling and games content, I provide expressive, reliable voice work with fast turnaround and strong creative communication.`,
         img: "assets/images/jason.png"
     },
     {
-        text: `Recent projects include work for VR, indie games, and short films. I am passionate about bringing unique characters and immersive stories to life.`,
-        img: "assets/images/about-2.png"
+        text: `Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />My work has reached over 1.5 million impressions online, including over 1 million views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.`,
+        img: "assets/images/about.png"
     }
 ];
 
@@ -135,11 +134,43 @@ function renderAboutBlocks() {
     aboutBlocks.forEach(block => {
         const div = document.createElement('div');
         div.className = 'about-block';
-        if (block.img) {
-            div.innerHTML = `<img class=\"about-img\" src=\"${block.img}\" alt=\"About Image\"><div>${block.text}</div>`;
-        } else {
-            div.innerHTML = `<div>${block.text}</div>`;
+        
+        if (block.videoUrl) {
+            // Handle YouTube video embed
+            let embedUrl = '';
+            const url = block.videoUrl;
+            
+            // Check if URL is already an embed URL
+            if (url.includes('/embed/')) {
+                embedUrl = url;
+            } else {
+                // Extract video ID from different YouTube URL formats
+                let videoId = '';
+                if (url.includes('youtu.be/')) {
+                    videoId = url.split('youtu.be/')[1].split('?')[0];
+                } else if (url.includes('youtube.com/watch?v=')) {
+                    videoId = url.split('v=')[1].split('&')[0];
+                } else if (url.includes('youtube.com/shorts/')) {
+                    videoId = url.split('shorts/')[1].split('?')[0];
+                }
+                
+                if (videoId) {
+                    embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
+                }
+            }
+            
+            if (embedUrl) {
+                div.innerHTML = `<iframe class="about-video" width="100%" height="315" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            }
+        } else if (block.img || block.text) {
+            // Handle text + image block (original format)
+            if (block.img) {
+                div.innerHTML = `<img class=\"about-img\" src=\"${block.img}\" alt=\"About Image\"><div>${block.text}</div>`;
+            } else {
+                div.innerHTML = `<div>${block.text}</div>`;
+            }
         }
+        
         aboutSection.appendChild(div);
     });
 }
