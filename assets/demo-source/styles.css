@@ -180,6 +180,7 @@ div.about-section {
     }
 
     .about-block {
+        width: var(--wfa);
         margin-bottom: 1rem;
     }
 }
@@ -326,6 +327,7 @@ div.about-section {
 
     .about-block {
         flex: 1 1 !important;
+        width: var(--wfa);
     }
 
     .demo-item {
@@ -353,6 +355,7 @@ div.about-section {
     .about-block {
         padding: 0.7rem;
         flex: 1 1 !important;
+        width: var(--wfa);
     }
 
     .work-item {
@@ -432,6 +435,7 @@ p.copyright {
 
     .about-block {
         flex: 1 1 !important;
+        width: var(--wfa);
     }
 }
 
