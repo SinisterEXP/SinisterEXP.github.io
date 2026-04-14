@@ -168,7 +168,7 @@ function renderAboutBlocks() {
                 if (block.header) {
                     html += `<h3 class="about-header">${block.header}</h3>`;
                 }
-                html += `<iframe class="about-video" style="height: var(--wfa); margin: 0;" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                html += `<iframe class="about-video" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
                 div.innerHTML = html;
             }
         } else if (block.img || block.text) {
@@ -212,13 +212,13 @@ function renderStudioCollabs() {
         item.className = 'collab-item';
         let worksHtml = '';
         if (Array.isArray(collab.work) && collab.work.length > 0) {
-            worksHtml = '<ul style="margin:0.5em 0 0 1.5em;">';
+            worksHtml = '<ul style="margin: 0.5em 0 0 1.5em; font-weight: bold;">';
             collab.work.forEach(w => {
                 worksHtml += `<li>${w}</li>`;
             });
             worksHtml += '</ul>';
         }
-        item.innerHTML = `<strong>${collab.title}</strong>:${worksHtml}`;
+        item.innerHTML = `<h3 style="margin: 0;">${collab.title}:</h3>${worksHtml}`;
         collabDiv.appendChild(item);
     });
 }
@@ -232,13 +232,13 @@ function renderIndustryReviews() {
         item.className = 'review-item';
         let worksHtml = '';
         if (Array.isArray(review.work) && review.work.length > 0) {
-            worksHtml = '<ul style="margin:0.5em 0 0 1.5em;">';
+            worksHtml = '<ul style="margin: 0.5em 0 0 1.5em; font-weight: bold;">';
             review.work.forEach(w => {
                 worksHtml += `<li>${w}</li>`;
             });
             worksHtml += '</ul>';
         }
-        item.innerHTML = `<strong>${review.title}</strong>${worksHtml}`;
+        item.innerHTML = `<h3 style="margin: 0;">${review.title}:</h3>${worksHtml}`;
         reviewsDiv.appendChild(item);
     });
 }
