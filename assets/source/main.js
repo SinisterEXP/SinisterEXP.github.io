@@ -46,16 +46,16 @@ const demoData = [
 // About blocks for Home Page
 const aboutBlocks = [
     {
-        text: `Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />My work has reached over 1 million impressions online, including over 550,000 views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.`,
-        img: "assets/images/about.png"
+        header: "Sinister Tales - Narration Showcase",
+        videoUrl: "https://www.youtube.com/embed/a3FAhxzjhnc?si=5OamHFpo0bMiFY9q"
     },
     {
         text: `SinisterEXP (Jason Perkins) is a UK-based voice actor specialising in character-driven and narrative performance.<br /><br />With a background in digital storytelling and games content, I provide expressive, reliable voice work with fast turnaround and strong creative communication.`,
         img: "assets/images/jason.png"
     },
     {
-        text: `Recent projects include work for VR, indie games, and short films. I am passionate about bringing unique characters and immersive stories to life.`,
-        img: "assets/images/about-2.png"
+        text: `Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />My work has reached over 1.5 million impressions online, including over 1 million views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.`,
+        img: "assets/images/vabg-1.jpg"
     }
 ];
 
@@ -69,7 +69,7 @@ const pastWorkData = [
     {
         title: "Sinister Tales",
         subtitle: "Original Narration Series",
-        description: `Creator & Narrator. Dark, atmospheric storytelling project used to develop and showcase narrative and character performance.`
+        description: `Creator, Writer & Lead Narrator for an original dark storytelling series focussed on immersive character-driven performance.<br><br>An expanding project that showcases range across horror, drama and myth-inspired narratives, while refining tone, pacing and emotional delivery for narrative and game-based roles.`
     }
 ];
 
@@ -78,19 +78,20 @@ const studioCollabsData = [
     {
         title: "Maze Theory",
         work: [
-            "Creator partnerships and early-access coverage",
-            "Bug testing and QA feedback",
-            "Community moderator on the official Maze Theory Discord",
-            "Voice acting demo submitted for future casting consideration",
-            "Peaky Blinders VR – 550,000 views"
+            "Ongoing creator partnership with early-access coverage and community engagement",
+            "Active involvement in bug testing and QA feedback during development cycles",
+            "Community moderator within the official Maze Theory Discord",
+            "Voice acting demo submitted and under consideration for future casting opportunities",
+            "Created high-performing content for Peaky Blinders VR, generating over 1,000,000+ views"
         ]
     },
     {
         title: "VRKiwi",
         work: [
-            "Early-access coverage and review work",
-            "Titles covered include Jolly Roger VR",
-            "Voice acting demo shared for future role consideration"
+            "Official partner via Xsolla influencer program",
+            "Early-access coverage, reviews, and promotional content for VR titles",
+            "Titles covered include Pirates VR: Jolly Roger and other upcoming releases",
+            "Voice acting demo submitted for potential future collaboration"
         ]
     }
 ];
@@ -98,11 +99,13 @@ const studioCollabsData = [
 // Experience data: Add More Industry Reviews Here
 const industryReviewsData = [
     {
-        title: "Keymailer",
+        title: "Keymailer & Independent Coverage",
         work: [
-            "Covered over 15 indie and VR titles",
-            "Invited to cover Red Bull–sponsored title MAVRIX",
-            "Provided structured feedback, gameplay coverage, and promotional insight"
+            "Covered 15+ indie and VR titles across multiple platforms",
+            "Selected to cover MAVRIX (Red Bull–affiliated project)",
+            "Delivered structured developer feedback including gameplay analysis, usability insights, and player experience improvements",
+            "Experience identifying bugs, balancing issues, and UX friction points during playtesting",
+            "Created promotional and gameplay content aligned with both player engagement and developer visibility"
         ]
     }
 ];
@@ -135,11 +138,48 @@ function renderAboutBlocks() {
     aboutBlocks.forEach(block => {
         const div = document.createElement('div');
         div.className = 'about-block';
-        if (block.img) {
-            div.innerHTML = `<img class=\"about-img\" src=\"${block.img}\" alt=\"About Image\"><div>${block.text}</div>`;
-        } else {
-            div.innerHTML = `<div>${block.text}</div>`;
+        
+        if (block.videoUrl) {
+            // Handle YouTube video embed
+            let embedUrl = '';
+            const url = block.videoUrl;
+            
+            // Check if URL is already an embed URL
+            if (url.includes('/embed/')) {
+                embedUrl = url;
+            } else {
+                // Extract video ID from different YouTube URL formats
+                let videoId = '';
+                if (url.includes('youtu.be/')) {
+                    videoId = url.split('youtu.be/')[1].split('?')[0];
+                } else if (url.includes('youtube.com/watch?v=')) {
+                    videoId = url.split('v=')[1].split('&')[0];
+                } else if (url.includes('youtube.com/shorts/')) {
+                    videoId = url.split('shorts/')[1].split('?')[0];
+                }
+                
+                if (videoId) {
+                    embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
+                }
+            }
+            
+            if (embedUrl) {
+                let html = '';
+                if (block.header) {
+                    html += `<h3 class="about-header">${block.header}</h3>`;
+                }
+                html += `<iframe class="about-video" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                div.innerHTML = html;
+            }
+        } else if (block.img || block.text) {
+            // Handle text + image block (original format)
+            if (block.img) {
+                div.innerHTML = `<img class=\"about-img\" src=\"${block.img}\" alt=\"About Image\"><div>${block.text}</div>`;
+            } else {
+                div.innerHTML = `<div>${block.text}</div>`;
+            }
         }
+        
         aboutSection.appendChild(div);
     });
 }
@@ -172,13 +212,13 @@ function renderStudioCollabs() {
         item.className = 'collab-item';
         let worksHtml = '';
         if (Array.isArray(collab.work) && collab.work.length > 0) {
-            worksHtml = '<ul style="margin:0.5em 0 0 1.5em;">';
+            worksHtml = '<ul style="margin: 0.5em 0 0 1.5em; font-weight: bold;">';
             collab.work.forEach(w => {
                 worksHtml += `<li>${w}</li>`;
             });
             worksHtml += '</ul>';
         }
-        item.innerHTML = `<strong>${collab.title}</strong>:${worksHtml}`;
+        item.innerHTML = `<h3 style="margin: 0;">${collab.title}:</h3>${worksHtml}`;
         collabDiv.appendChild(item);
     });
 }
@@ -192,13 +232,13 @@ function renderIndustryReviews() {
         item.className = 'review-item';
         let worksHtml = '';
         if (Array.isArray(review.work) && review.work.length > 0) {
-            worksHtml = '<ul style="margin:0.5em 0 0 1.5em;">';
+            worksHtml = '<ul style="margin: 0.5em 0 0 1.5em; font-weight: bold;">';
             review.work.forEach(w => {
                 worksHtml += `<li>${w}</li>`;
             });
             worksHtml += '</ul>';
         }
-        item.innerHTML = `<strong>${review.title}</strong>${worksHtml}`;
+        item.innerHTML = `<h3 style="margin: 0;">${review.title}:</h3>${worksHtml}`;
         reviewsDiv.appendChild(item);
     });
 }
