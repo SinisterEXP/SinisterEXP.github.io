@@ -177,6 +177,7 @@ div.about-section {
     div.about-section {
         flex-direction: column;
         gap: 1rem;
+        width: var(--wfa);
     }
 
     .about-block {
