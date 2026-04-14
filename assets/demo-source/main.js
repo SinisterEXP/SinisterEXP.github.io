@@ -68,7 +68,7 @@ const pastWorkData = [
     {
         title: "Sinister Tales",
         subtitle: "Original Narration Series",
-        description: `Creator & Narrator. Dark, atmospheric storytelling project used to develop and showcase narrative and character performance.`
+        description: `Creator, Writer & Lead Narrator for an original dark storytelling series focussed on immersive character-driven performance.<br><br>An expanding project that showcases range across horror, drama and myth-inspired narratives, while refining tone, pacing and emotional delivery for narrative and game-based roles.`
     }
 ];
 
@@ -77,19 +77,20 @@ const studioCollabsData = [
     {
         title: "Maze Theory",
         work: [
-            "Creator partnerships and early-access coverage",
-            "Bug testing and QA feedback",
-            "Community moderator on the official Maze Theory Discord",
-            "Voice acting demo submitted for future casting consideration",
-            "Peaky Blinders VR – 550,000 views"
+            "Ongoing creator partnership with early-access coverage and community engagement",
+            "Active involvement in bug testing and QA feedback during development cycles",
+            "Community moderator within the official Maze Theory Discord",
+            "Voice acting demo submitted and under consideration for future casting opportunities",
+            "Created high-performing content for Peaky Blinders VR, generating over 1,000,000+ views"
         ]
     },
     {
         title: "VRKiwi",
         work: [
-            "Early-access coverage and review work",
-            "Titles covered include Jolly Roger VR",
-            "Voice acting demo shared for future role consideration"
+            "Official partner via Xsolla influencer program",
+            "Early-access coverage, reviews, and promotional content for VR titles",
+            "Titles covered include Pirates VR: Jolly Roger and other upcoming releases",
+            "Voice acting demo submitted for potential future collaboration"
         ]
     }
 ];
@@ -97,11 +98,13 @@ const studioCollabsData = [
 // Experience data: Add More Industry Reviews Here
 const industryReviewsData = [
     {
-        title: "Keymailer",
+        title: "Keymailer & Independent Coverage",
         work: [
-            "Covered over 15 indie and VR titles",
-            "Invited to cover Red Bull–sponsored title MAVRIX",
-            "Provided structured feedback, gameplay coverage, and promotional insight"
+            "Covered 15+ indie and VR titles across multiple platforms",
+            "Selected to cover MAVRIX (Red Bull–affiliated project)",
+            "Delivered structured developer feedback including gameplay analysis, usability insights, and player experience improvements",
+            "Experience identifying bugs, balancing issues, and UX friction points during playtesting",
+            "Created promotional and gameplay content aligned with both player engagement and developer visibility"
         ]
     }
 ];
