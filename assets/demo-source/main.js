@@ -46,6 +46,7 @@ const demoData = [
 // About blocks for Home Page
 const aboutBlocks = [
     {
+        header: "Sinister Tales Intro",
         videoUrl: "https://www.youtube.com/embed/a3FAhxzjhnc?si=5OamHFpo0bMiFY9q"
     },
     {
@@ -163,7 +164,12 @@ function renderAboutBlocks() {
             }
             
             if (embedUrl) {
-                div.innerHTML = `<iframe class="about-video" style="width: stretch; height: var(--wfa); margin: 0;" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                let html = '';
+                if (block.header) {
+                    html += `<h3 class="about-header">${block.header}</h3>`;
+                }
+                html += `<iframe class="about-video" style="stretch; height: var(--wfa); margin: 0;" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                div.innerHTML = html;
             }
         } else if (block.img || block.text) {
             // Handle text + image block (original format)
