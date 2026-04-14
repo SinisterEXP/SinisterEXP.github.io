@@ -159,7 +159,7 @@ div.about-section {
 }
 
 .about-img {
-    width: 100%;
+    width: var(--wfa);
     border-radius: 8px;
     margin-bottom: 1rem;
     object-fit: cover;
@@ -167,7 +167,7 @@ div.about-section {
 }
 
 .about-video {
-    width: 100%;
+    width: var(--wfa);
     border-radius: 8px;
     margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
