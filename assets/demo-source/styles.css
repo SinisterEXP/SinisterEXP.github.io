@@ -80,7 +80,7 @@ div.site-branding {
     background: linear-gradient(90deg, rgba(34, 34, 34, 0.95) 60%, rgba(215, 195, 37, 0.12) 100%);
     border: 2px solid var(--color-1);
     border-radius: 8px;
-    padding: 0.5em 1.2em;
+    padding: 0.5em;
     text-decoration: none;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     transition: background 0.2s, color 0.2s, border 0.2s, transform 0.15s;
