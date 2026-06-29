@@ -54,7 +54,7 @@ const aboutBlocks = [
         img: "assets/images/jason.png"
     },
     {
-        text: `Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />My work has reached over 1.5 million impressions online, including over 1 million views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.`,
+        text: `<div style="background-color: #d7c32542; color: #ffffff; padding: 1rem; border-radius: 5px;">Professional voice actor and cinematic creator delivering immersive narration, character performance, and atmospheric storytelling across games, VR, film, and digital media.<br /><br />Alongside voice acting, my original medieval and dark fantasy content has generated over 4 million views across social media in the past month alone, demonstrating strong audience engagement within the fantasy and historical storytelling niche.<br /><br />My work has also surpassed 1 million views on Peaky Blinders VR, and I've collaborated with indie and VR studios to bring distinctive characters and stories to life.</div>`,
         img: "assets/images/vabg-1.jpg"
     }
 ];
