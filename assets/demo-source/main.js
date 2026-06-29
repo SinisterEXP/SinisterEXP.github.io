@@ -15,6 +15,7 @@ function showPage(page) {
         renderStudioCollabs();
         renderIndustryReviews();
     }
+    if (page === "cinematics") renderCinematics();
 }
 function handleHash() {
     const hash = location.hash.replace('#', '').toLowerCase();
