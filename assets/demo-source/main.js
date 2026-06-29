@@ -243,6 +243,56 @@ function renderIndustryReviews() {
     });
 }
 
+// Render Cinematics & VFX Showcase
+function renderCinematics() {
+    const cinematicsDiv = document.getElementById('cinematics-list');
+    if (!cinematicsDiv) return;
+    cinematicsDiv.innerHTML = '';
+    cinematicsData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'cinematics-card';
+        
+        let mediaHTML = '';
+        
+        if (item.videoUrl) {
+            // Handle YouTube video embed
+            let embedUrl = '';
+            const url = item.videoUrl;
+            
+            // Check if URL is already an embed URL
+            if (url.includes('/embed/')) {
+                embedUrl = url;
+            } else {
+                // Extract video ID from different YouTube URL formats
+                let videoId = '';
+                if (url.includes('youtu.be/')) {
+                    videoId = url.split('youtu.be/')[1].split('?')[0];
+                } else if (url.includes('youtube.com/watch?v=')) {
+                    videoId = url.split('v=')[1].split('&')[0];
+                } else if (url.includes('youtube.com/shorts/')) {
+                    videoId = url.split('shorts/')[1].split('?')[0];
+                }
+                
+                if (videoId) {
+                    embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
+                }
+            }
+            
+            if (embedUrl) {
+                mediaHTML = `<div class="cinematics-media"><iframe class="cinematics-video" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+            }
+        } else if (item.imageUrl) {
+            // Handle image
+            mediaHTML = `<div class="cinematics-media"><img class="cinematics-image" src="${item.imageUrl}" alt="Cinematics"></div>`;
+        }
+        
+        const descriptionHTML = `<div class="cinematics-description"><p>${item.description}</p></div>`;
+        
+        card.innerHTML = mediaHTML + descriptionHTML;
+        cinematicsDiv.appendChild(card);
+    });
+}
+
 // Modal menu logic
 const menuBtn = document.getElementById('menu-btn');
 const navModal = document.getElementById('nav-modal');
