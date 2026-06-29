@@ -1,5 +1,5 @@
 // SPA Hash Router
-const pages = ["home", "demos", "pastwork", "contact"];
+const pages = ["home", "demos", "pastwork", "cinematics", "contact"];
 function showPage(page) {
     pages.forEach(p => {
         document.getElementById(`page-${p}`).style.display = (p === page) ? "block" : "none";
