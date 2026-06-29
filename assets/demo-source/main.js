@@ -55,6 +55,10 @@ const cinematicsData = [
     {
         description: "Your description goes here.",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-05.jpg"
+    },
+    {
+        description: "Your description goes here.",
+        imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-06.jpg"
     }
 ];
 
