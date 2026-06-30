@@ -30,25 +30,11 @@ document.addEventListener('DOMContentLoaded', handleHash);
 
 // Cinematics & VFX data: Add Your Videos or Images Here
 const cinematicsData = [
-    // TikTok Videos
-    /*
-    {
-        mediaType: "tiktok",
-        description: "Quite proud of this one! #knightedit #knightpov #medievalhistory #knightstemplar",
-        videoId: "7657216603595099414"
-    },
-
-    // YouTube Videos
+    // YouTube
     {
         mediaType: "youtube",
-        description: "Templar's Vigil",
-        videoUrl: "https://youtube.com/shorts/-hmBJwi_MEM?si=6WLdVRftfQ51paJJ"
-    },
-    */
-    {
-        mediaType: "youtube",
-        title: "Templar's Vigil",
-        description: "Templars Vigil! #knightstemplar #knightedit #vfxartist Music by KevinMacLeod",
+        title: "The Templar's Vigil",
+        description: "A cinematic medieval composition depicting a lone Knight Templar standing watch before a storm-shrouded fortress. Created using visual effects, atmospheric compositing, and digital storytelling techniques.",
         videoUrl: "https://youtube.com/shorts/-hmBJwi_MEM?si=6WLdVRftfQ51paJJ"
     },
 
@@ -233,7 +219,6 @@ function renderAboutBlocks() {
                 div.innerHTML = html;
             }
         } else if (block.img || block.text) {
-            // Handle text + image block (original format)
             if (block.img) {
                 div.innerHTML = `<img class=\"about-img\" src=\"${block.img}\" alt=\"About Image\"><div>${block.text}</div>`;
             } else {
@@ -363,7 +348,6 @@ function renderCinematics() {
         cinematicsDiv.appendChild(card);
     });
     
-    // Add click handlers for images
     document.querySelectorAll('.cinematics-image[data-fullscreen]').forEach(img => {
         img.addEventListener('click', () => {
             openImageModal(img.getAttribute('data-fullscreen'));
@@ -371,12 +355,10 @@ function renderCinematics() {
         img.style.cursor = 'pointer';
     });
     
-    // Process TikTok embeds with proper timing and error handling
     if (document.querySelector('.tiktok-embed')) {
         if (window.tiktok && window.tiktok.embed && window.tiktok.embed.lib) {
             window.tiktok.embed.lib.render(cinematicsDiv);
         } else {
-            // Fallback: try again after delay if script isn't ready yet
             setTimeout(() => {
                 if (window.tiktok && window.tiktok.embed && window.tiktok.embed.lib) {
                     window.tiktok.embed.lib.render(cinematicsDiv);
