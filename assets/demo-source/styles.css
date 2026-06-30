@@ -634,8 +634,10 @@ form[action*="web3forms"] {
 #cinematics-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: auto;
     gap: 1.5rem;
     margin-top: 1.5rem;
+    align-items: start;
 }
 
 .cinematics-card {
@@ -662,20 +664,21 @@ form[action*="web3forms"] {
 
 .cinematics-video {
     width: 100%;
-    height: 300px;
+    aspect-ratio: 16 / 9;
     border: none;
+    display: block;
 }
 
 .cinematics-image {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
 }
 
 .cinematics-description {
     padding: 1.5rem;
     background: var(--color-7);
+    flex-shrink: 0;
 }
 
 .cinematics-description p {
