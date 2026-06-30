@@ -310,7 +310,10 @@ function renderCinematics() {
         let mediaHTML = '';
         
         if (item.mediaType === 'tiktok') {
-            mediaHTML = `<div class="cinematics-media"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sinisterexp/video/${item.videoId}" data-video-id="${item.videoId}" style="max-width: -webkit-fill-available; border-radius: 8px;"><section></section></blockquote></div>`;
+            mediaHTML = `<div class="cinematics-media">
+                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sinisterexp/video/${item.videoId}" data-video-id="${item.videoId}" style="max-width: -webkit-fill-available; border-radius: 8px;"><section></section></blockquote>
+                <script async src="https://www.tiktok.com/embed.js"></script>
+            </div>`;
         } else if (item.mediaType === 'youtube') {
             let embedUrl = '';
             const url = item.videoUrl;
