@@ -30,34 +30,28 @@ document.addEventListener('DOMContentLoaded', handleHash);
 
 // Cinematics & VFX data: Add Your Videos or Images Here
 const cinematicsData = [
-    /*
     {
-        description: "Add your cinematics and VFX showcase items here. Use videoUrl for YouTube videos or imageUrl for images.",
-        videoUrl: "https://www.youtube.com/embed/a3FAhxzjhnc?si=5OamHFpo0bMiFY9q"
-    },
-    */
-    {
-        description: "Your description goes here.",
+        description: "Fantasy Matte Painting",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-01.jpg"
     },
     {
-        description: "Your description goes here.",
+        description: "Digital Environment Composite",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-02.jpg"
     },
     {
-        description: "Your description goes here.",
+        description: "Fantasy Sky Replacement",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-03.jpg"
     },
     {
-        description: "Your description goes here.",
+        description: "Cinematic Matte Painting",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-04.jpg"
     },
     {
-        description: "Your description goes here.",
+        description: "Fantasy Environment",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-05.jpg"
     },
     {
-        description: "Your description goes here.",
+        description: "Cinematic Composite",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-06.jpg"
     }
 ];
