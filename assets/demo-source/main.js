@@ -325,6 +325,46 @@ function renderCinematics() {
     });
 }
 
+// Image modal functions
+function openImageModal(imageSrc) {
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('image-modal-content');
+    modalImg.src = imageSrc;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('image-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Image modal event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    const imageModalClose = document.getElementById('image-modal-close');
+    const imageModal = document.getElementById('image-modal');
+    
+    if (imageModalClose) {
+        imageModalClose.addEventListener('click', closeImageModal);
+    }
+    
+    if (imageModal) {
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                closeImageModal();
+            }
+        });
+    }
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeImageModal();
+        }
+    });
+});
+
 // Modal menu logic
 const menuBtn = document.getElementById('menu-btn');
 const navModal = document.getElementById('nav-modal');
