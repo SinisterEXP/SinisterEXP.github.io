@@ -1,5 +1,5 @@
 // SPA Hash Router
-const pages = ["home", "demos", "pastwork", "contact"];
+const pages = ["home", "demos", "pastwork", "cinematics", "contact"];
 function showPage(page) {
     pages.forEach(p => {
         document.getElementById(`page-${p}`).style.display = (p === page) ? "block" : "none";
@@ -15,6 +15,7 @@ function showPage(page) {
         renderStudioCollabs();
         renderIndustryReviews();
     }
+    if (page === "cinematics") renderCinematics();
 }
 function handleHash() {
     const hash = location.hash.replace('#', '').toLowerCase();
@@ -26,6 +27,69 @@ function handleHash() {
 }
 window.addEventListener('hashchange', handleHash);
 document.addEventListener('DOMContentLoaded', handleHash);
+
+// Cinematics & VFX data: Add Your Videos or Images Here
+const cinematicsData = [
+    // TikTok Videos
+    /*
+    {
+        mediaType: "tiktok",
+        description: "Quite proud of this one! #knightedit #knightpov #medievalhistory #knightstemplar",
+        videoId: "7657216603595099414"
+    },
+
+    // YouTube Videos
+    {
+        mediaType: "youtube",
+        description: "Templar's Vigil",
+        videoUrl: "https://youtube.com/shorts/-hmBJwi_MEM?si=6WLdVRftfQ51paJJ"
+    },
+    */
+    {
+        mediaType: "youtube",
+        title: "The Templar's Vigil",
+        description: "A cinematic medieval composition depicting a lone Knight Templar standing watch before a storm-shrouded fortress. Created using visual effects, atmospheric compositing, and digital storytelling techniques.",
+        videoUrl: "https://youtube.com/shorts/-hmBJwi_MEM?si=6WLdVRftfQ51paJJ"
+    },
+
+    // Images
+    {
+        mediaType: "image",
+        title: "Celestial Twilight",
+        description: "Fantasy Matte Painting",
+        imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-01.jpg"
+    },
+    {
+        mediaType: "image",
+        title: "Kingdom of Valdyrra",
+        description: "Digital Environment Composite",
+        imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-02.jpg"
+    },
+    {
+        mediaType: "image",
+        title: "Twin Moons",
+        description: "Fantasy Sky Replacement",
+        imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-03.jpg"
+    },
+    {
+        mediaType: "image",
+        title: "The Forgotten Keep",
+        description: "Cinematic Matte Painting",
+        imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-04.jpg"
+    },
+    {
+        mediaType: "image",
+        title: "Moonlit Shores",
+        description: "Fantasy Environment",
+        imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-05.jpg"
+    },
+    {
+        mediaType: "image",
+        title: "The Templar's Vigil",
+        description: "Cinematic Composite",
+        imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-06.jpg"
+    }
+];
 
 // Demo data: Add Your YouTube Demos Here
 const demoData = [
@@ -54,7 +118,7 @@ const aboutBlocks = [
         img: "assets/images/jason.png"
     },
     {
-        text: `Professional voice actor delivering immersive narrative, character, and atmospheric performances across games, VR, short films, and digital storytelling.<br /><br />My work has reached over 1.5 million impressions online, including over 1 million views on Peaky Blinders VR. I also collaborate with indie and VR studios to bring distinctive characters and stories to life.`,
+        text: `<div style="background-color: #d7c32542; color: #ffffff; padding: 1rem; border-radius: 5px;">Professional voice actor and cinematic creator delivering immersive narration, character performance, and atmospheric storytelling across games, VR, film, and digital media.<br /><br />Alongside voice acting, my original medieval and dark fantasy content has generated over 4 million views across social media in the past month alone, demonstrating strong audience engagement within the fantasy and historical storytelling niche.<br /><br />My work has also surpassed 1 million views on Peaky Blinders VR, and I've collaborated with indie and VR studios to bring distinctive characters and stories to life.</div>`,
         img: "assets/images/vabg-1.jpg"
     }
 ];
@@ -140,15 +204,12 @@ function renderAboutBlocks() {
         div.className = 'about-block';
         
         if (block.videoUrl) {
-            // Handle YouTube video embed
             let embedUrl = '';
             const url = block.videoUrl;
             
-            // Check if URL is already an embed URL
             if (url.includes('/embed/')) {
                 embedUrl = url;
             } else {
-                // Extract video ID from different YouTube URL formats
                 let videoId = '';
                 if (url.includes('youtu.be/')) {
                     videoId = url.split('youtu.be/')[1].split('?')[0];
@@ -242,6 +303,129 @@ function renderIndustryReviews() {
         reviewsDiv.appendChild(item);
     });
 }
+
+// Render Cinematics & VFX Showcase
+function renderCinematics() {
+    const cinematicsDiv = document.getElementById('cinematics-list');
+    if (!cinematicsDiv) return;
+    cinematicsDiv.innerHTML = '';
+    cinematicsData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'cinematics-card';
+        
+        let mediaHTML = '';
+        
+        if (item.mediaType === 'tiktok') {
+            mediaHTML = `<div class="cinematics-media">
+                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sinisterexp/video/${item.videoId}" data-video-id="${item.videoId}" style="max-width: -webkit-fill-available; border-radius: 8px;"><section></section></blockquote>
+                <script async src="https://www.tiktok.com/embed.js"></script>
+            </div>`;
+        } else if (item.mediaType === 'youtube') {
+            let embedUrl = '';
+            const url = item.videoUrl;
+            
+            if (url.includes('/embed/')) {
+                embedUrl = url;
+            } else {
+                let videoId = '';
+                if (url.includes('youtu.be/')) {
+                    videoId = url.split('youtu.be/')[1].split('?')[0];
+                } else if (url.includes('youtube.com/watch?v=')) {
+                    videoId = url.split('v=')[1].split('&')[0];
+                } else if (url.includes('youtube.com/shorts/')) {
+                    videoId = url.split('shorts/')[1].split('?')[0];
+                }
+                
+                if (videoId) {
+                    embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
+                }
+            }
+            
+            if (embedUrl) {
+                mediaHTML = `<div class="cinematics-media"><iframe class="cinematics-video" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+            }
+        } else if (item.mediaType === 'image') {
+            mediaHTML = `<div class="cinematics-media"><img class="cinematics-image" src="${item.imageUrl}" alt="Cinematics" data-fullscreen="${item.imageUrl}"></div>`;
+        }
+
+        let descriptionHTML = "";
+
+        if (item.mediaType === "tiktok") {
+            card.innerHTML = mediaHTML;
+        } else {
+            const descriptionHTML = `<div class="cinematics-description">
+                <h3 style="margin-top: 0;margin-bottom: 0.5rem;color: var(--color-1);">${item.title || "Cinematics"}</h3>
+                <p>${item.description}</p>
+            </div>`;
+            card.innerHTML = mediaHTML + descriptionHTML;
+        }
+
+        cinematicsDiv.appendChild(card);
+    });
+    
+    // Add click handlers for images
+    document.querySelectorAll('.cinematics-image[data-fullscreen]').forEach(img => {
+        img.addEventListener('click', () => {
+            openImageModal(img.getAttribute('data-fullscreen'));
+        });
+        img.style.cursor = 'pointer';
+    });
+    
+    // Process TikTok embeds with proper timing and error handling
+    if (document.querySelector('.tiktok-embed')) {
+        if (window.tiktok && window.tiktok.embed && window.tiktok.embed.lib) {
+            window.tiktok.embed.lib.render(cinematicsDiv);
+        } else {
+            // Fallback: try again after delay if script isn't ready yet
+            setTimeout(() => {
+                if (window.tiktok && window.tiktok.embed && window.tiktok.embed.lib) {
+                    window.tiktok.embed.lib.render(cinematicsDiv);
+                } else {
+                    console.warn('TikTok embed script not available. This may be due to CDN/CORS restrictions on GitHub Pages.');
+                }
+            }, 500);
+        }
+    }
+}
+
+// Image modal functions
+function openImageModal(imageSrc) {
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('image-modal-content');
+    modalImg.src = imageSrc;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('image-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Image modal event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    const imageModalClose = document.getElementById('image-modal-close');
+    const imageModal = document.getElementById('image-modal');
+    
+    if (imageModalClose) {
+        imageModalClose.addEventListener('click', closeImageModal);
+    }
+    
+    if (imageModal) {
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                closeImageModal();
+            }
+        });
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeImageModal();
+        }
+    });
+});
 
 // Modal menu logic
 const menuBtn = document.getElementById('menu-btn');
