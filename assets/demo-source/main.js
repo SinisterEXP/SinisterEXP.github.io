@@ -49,31 +49,37 @@ const cinematicsData = [
     // Images
     {
         mediaType: "image",
+        title: "Celestial Twilight",
         description: "Fantasy Matte Painting",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-01.jpg"
     },
     {
         mediaType: "image",
+        title: "Kingdom of Valdyrra",
         description: "Digital Environment Composite",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-02.jpg"
     },
     {
         mediaType: "image",
+        title: "Twin Moons",
         description: "Fantasy Sky Replacement",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-03.jpg"
     },
     {
         mediaType: "image",
+        title: "The Forgotten Keep",
         description: "Cinematic Matte Painting",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-04.jpg"
     },
     {
         mediaType: "image",
+        title: "Moonlit Shores",
         description: "Fantasy Environment",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-05.jpg"
     },
     {
         mediaType: "image",
+        title: "The Templar's Vigil",
         description: "Cinematic Composite",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-06.jpg"
     }
@@ -339,14 +345,16 @@ function renderCinematics() {
             card.innerHTML = mediaHTML;
         } else {
             const descriptionHTML = `<div class="cinematics-description">
+                <h3 style="margin-top: 0;margin-bottom: 0.5rem;color: var(--color-1);">${item.title || "Cinematics"}</h3>
                 <p>${item.description}</p>
             </div>`;
             card.innerHTML = mediaHTML + descriptionHTML;
         }
-        
+
         cinematicsDiv.appendChild(card);
     });
     
+    // Add click handlers for images
     document.querySelectorAll('.cinematics-image[data-fullscreen]').forEach(img => {
         img.addEventListener('click', () => {
             openImageModal(img.getAttribute('data-fullscreen'));
@@ -354,8 +362,20 @@ function renderCinematics() {
         img.style.cursor = 'pointer';
     });
     
-    if (window.tiktok && window.tiktok.embed) {
-        window.tiktok.embed.lib.render(cinematicsDiv);
+    // Process TikTok embeds with proper timing and error handling
+    if (document.querySelector('.tiktok-embed')) {
+        if (window.tiktok && window.tiktok.embed && window.tiktok.embed.lib) {
+            window.tiktok.embed.lib.render(cinematicsDiv);
+        } else {
+            // Fallback: try again after delay if script isn't ready yet
+            setTimeout(() => {
+                if (window.tiktok && window.tiktok.embed && window.tiktok.embed.lib) {
+                    window.tiktok.embed.lib.render(cinematicsDiv);
+                } else {
+                    console.warn('TikTok embed script not available. This may be due to CDN/CORS restrictions on GitHub Pages.');
+                }
+            }, 500);
+        }
     }
 }
 
