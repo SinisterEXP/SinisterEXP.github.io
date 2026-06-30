@@ -18,6 +18,22 @@ body {
     padding: 0;
 }
 
+.site-by {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-4);
+}
+
+.site-by a {
+    color: var(--color-1);
+    text-decoration: none;
+}
+
+.site-by a:hover {
+    font-weight: bold;
+}
+
 body::before {
     content: "";
     position: fixed;
@@ -413,7 +429,7 @@ p.copyright {
     width: var(--wfa);
     font-size: 0.8rem;
     color: var(--color-1);
-    margin: 0.5rem 0 0 0;
+    margin: 1rem 0 0 0;
     text-align: center;
     font-style: italic;
 }
@@ -841,7 +857,7 @@ form[action*="web3forms"] button:hover {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 }
 
 .social-item a {
