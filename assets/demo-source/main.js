@@ -47,7 +47,8 @@ const cinematicsData = [
     */
     {
         mediaType: "youtube",
-        description: "Templar's Vigil",
+        title: "Templar's Vigil",
+        description: "Templars Vigil! #knightstemplar #knightedit #vfxartist Music by KevinMacLeod",
         videoUrl: "https://youtube.com/shorts/-hmBJwi_MEM?si=6WLdVRftfQ51paJJ"
     },
 
@@ -349,7 +350,7 @@ function renderCinematics() {
 
         let descriptionHTML = "";
 
-        if (item.mediaType === "tiktok" || item.mediaType === "youtube") {
+        if (item.mediaType === "tiktok") {
             card.innerHTML = mediaHTML;
         } else {
             const descriptionHTML = `<div class="cinematics-description">
