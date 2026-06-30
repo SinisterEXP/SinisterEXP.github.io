@@ -333,17 +333,17 @@ function renderCinematics() {
             mediaHTML = `<div class="cinematics-media"><img class="cinematics-image" src="${item.imageUrl}" alt="Cinematics" data-fullscreen="${item.imageUrl}"></div>`;
         }
 
-        let descriptionHTML = '';
+        let descriptionHTML = "";
 
         if (item.mediaType === "tiktok" || item.mediaType === "youtube") {
-            item.description = "";
+            card.innerHTML = mediaHTML;
         } else {
-            descriptionHTML = `<div class="cinematics-description">
+            const descriptionHTML = `<div class="cinematics-description">
                 <p>${item.description}</p>
             </div>`;
+            card.innerHTML = mediaHTML + descriptionHTML;
         }
         
-        card.innerHTML = mediaHTML + descriptionHTML;
         cinematicsDiv.appendChild(card);
     });
     
