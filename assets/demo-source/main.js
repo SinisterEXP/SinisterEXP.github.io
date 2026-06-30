@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', handleHash);
 // Cinematics & VFX data: Add Your Videos or Images Here
 const cinematicsData = [
     // TikTok Videos
+    /*
     {
         mediaType: "tiktok",
         description: "Quite proud of this one! #knightedit #knightpov #medievalhistory #knightstemplar",
@@ -38,13 +39,17 @@ const cinematicsData = [
     },
 
     // YouTube Videos
-    /*
     {
         mediaType: "youtube",
-        description: "Sinister Tales - Narration Showcase",
-        videoUrl: "https://www.youtube.com/embed/a3FAhxzjhnc?si=5OamHFpo0bMiFY9q"
+        description: "Templar's Vigil",
+        videoUrl: "https://youtube.com/shorts/-hmBJwi_MEM?si=6WLdVRftfQ51paJJ"
     },
     */
+    {
+        mediaType: "youtube",
+        description: "Templar's Vigil",
+        videoUrl: "https://youtube.com/shorts/-hmBJwi_MEM?si=6WLdVRftfQ51paJJ"
+    },
 
     // Images
     {
