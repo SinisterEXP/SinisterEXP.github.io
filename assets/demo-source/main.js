@@ -31,26 +31,32 @@ document.addEventListener('DOMContentLoaded', handleHash);
 // Cinematics & VFX data: Add Your Videos or Images Here
 const cinematicsData = [
     {
+        title: "Celestial Twilight",
         description: "Fantasy Matte Painting",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-01.jpg"
     },
     {
+        title: "Kingdom of Valdyrra",
         description: "Digital Environment Composite",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-02.jpg"
     },
     {
+        title: "Twin Moons",
         description: "Fantasy Sky Replacement",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-03.jpg"
     },
     {
+        title: "The Forgotten Keep",
         description: "Cinematic Matte Painting",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-04.jpg"
     },
     {
+        title: "Moonlit Shores",
         description: "Fantasy Environment",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-05.jpg"
     },
     {
+        title: "The Vemplar's Vigil",
         description: "Cinematic Composite",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-06.jpg"
     }
@@ -311,7 +317,10 @@ function renderCinematics() {
             mediaHTML = `<div class="cinematics-media"><img class="cinematics-image" src="${item.imageUrl}" alt="Cinematics" data-fullscreen="${item.imageUrl}"></div>`;
         }
         
-        const descriptionHTML = `<div class="cinematics-description"><p>${item.description}</p></div>`;
+        const descriptionHTML = `<div class="cinematics-description">
+            <h3 style="margin-top: 0; margin-bottom: 0.5rem; color: var(--color-1);">${item.title}</h3>
+            <p>${item.description}</p>
+        </div>`;
         
         card.innerHTML = mediaHTML + descriptionHTML;
         cinematicsDiv.appendChild(card);
