@@ -30,33 +30,50 @@ document.addEventListener('DOMContentLoaded', handleHash);
 
 // Cinematics & VFX data: Add Your Videos or Images Here
 const cinematicsData = [
+    // TikTok Videos
     {
-        title: "Celestial Twilight",
+        mediaType: "tiktok",
+        description: "Quite proud of this one! #knightedit #knightpov #medievalhistory #knightstemplar",
+        videoId: "7656873243139247382"
+    },
+
+    // YouTube Videos
+    /*
+    {
+        mediaType: "youtube",
+        description: "Sinister Tales - Narration Showcase",
+        videoUrl: "https://www.youtube.com/embed/a3FAhxzjhnc?si=5OamHFpo0bMiFY9q"
+    },
+    */
+
+    // Images
+    {
+        mediaType: "image",
         description: "Fantasy Matte Painting",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-01.jpg"
     },
     {
-        title: "Kingdom of Valdyrra",
+        mediaType: "image",
         description: "Digital Environment Composite",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-02.jpg"
     },
     {
-        title: "Twin Moons",
+        mediaType: "image",
         description: "Fantasy Sky Replacement",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-03.jpg"
     },
     {
-        title: "The Forgotten Keep",
+        mediaType: "image",
         description: "Cinematic Matte Painting",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-04.jpg"
     },
     {
-        title: "Moonlit Shores",
+        mediaType: "image",
         description: "Fantasy Environment",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-05.jpg"
     },
     {
-        title: "The Vemplar's Vigil",
+        mediaType: "image",
         description: "Cinematic Composite",
         imageUrl: "https://sinisterexp.github.io/assets/images/gallery/vfx-06.jpg"
     }
@@ -175,15 +192,12 @@ function renderAboutBlocks() {
         div.className = 'about-block';
         
         if (block.videoUrl) {
-            // Handle YouTube video embed
             let embedUrl = '';
             const url = block.videoUrl;
             
-            // Check if URL is already an embed URL
             if (url.includes('/embed/')) {
                 embedUrl = url;
             } else {
-                // Extract video ID from different YouTube URL formats
                 let videoId = '';
                 if (url.includes('youtu.be/')) {
                     videoId = url.split('youtu.be/')[1].split('?')[0];
@@ -289,7 +303,9 @@ function renderCinematics() {
         
         let mediaHTML = '';
         
-        if (item.videoUrl) {
+        if (item.mediaType === 'tiktok') {
+            mediaHTML = `<div class="cinematics-media"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sinisterexp/video/${item.videoId}" data-video-id="${item.videoId}" style="max-width: -webkit-fill-available; border-radius: 8px;"><section></section></blockquote></div>`;
+        } else if (item.mediaType === 'youtube') {
             let embedUrl = '';
             const url = item.videoUrl;
             
@@ -313,14 +329,19 @@ function renderCinematics() {
             if (embedUrl) {
                 mediaHTML = `<div class="cinematics-media"><iframe class="cinematics-video" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
             }
-        } else if (item.imageUrl) {
+        } else if (item.mediaType === 'image') {
             mediaHTML = `<div class="cinematics-media"><img class="cinematics-image" src="${item.imageUrl}" alt="Cinematics" data-fullscreen="${item.imageUrl}"></div>`;
         }
-        
-        const descriptionHTML = `<div class="cinematics-description">
-            <h3 style="margin-top: 0; margin-bottom: 0.5rem; color: var(--color-1);">${item.title}</h3>
-            <p>${item.description}</p>
-        </div>`;
+
+        let descriptionHTML = '';
+
+        if (item.mediaType === "tiktok" || item.mediaType === "youtube") {
+            item.description = "";
+        } else {
+            descriptionHTML = `<div class="cinematics-description">
+                <p>${item.description}</p>
+            </div>`;
+        }
         
         card.innerHTML = mediaHTML + descriptionHTML;
         cinematicsDiv.appendChild(card);
@@ -332,6 +353,10 @@ function renderCinematics() {
         });
         img.style.cursor = 'pointer';
     });
+    
+    if (window.tiktok && window.tiktok.embed) {
+        window.tiktok.embed.lib.render(cinematicsDiv);
+    }
 }
 
 // Image modal functions
@@ -366,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Close modal on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeImageModal();
