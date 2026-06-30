@@ -53,6 +53,10 @@ body::after {
     padding: 2rem;
 }
 
+main#main div#embed-video-container {
+    background-color: var(--app-bg) !important;
+}
+
 div.top-bar {
     display: flex;
     flex-direction: column;
@@ -373,7 +377,7 @@ div.about-section {
     #cinematics-list {
         grid-template-columns: 1fr;
     }
-    
+
     #app {
         margin: 2rem;
     }
@@ -627,7 +631,6 @@ p.copyright {
     transform: translateY(-1px) scale(1.03);
 }
 
-/* Style for both contact forms */
 .contact-form,
 form[action*="web3forms"] {
     background: var(--color-7);
@@ -642,7 +645,6 @@ form[action*="web3forms"] {
     margin-bottom: 0;
 }
 
-/* Cinematics & VFX Grid Styles */
 #cinematics-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -687,6 +689,11 @@ form[action*="web3forms"] {
     display: block;
 }
 
+.tiktok-embed {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
 .cinematics-description {
     padding: 1.5rem;
     background: var(--color-7);
@@ -700,7 +707,6 @@ form[action*="web3forms"] {
     color: var(--color-4);
 }
 
-/* Image Modal Styles */
 .image-modal {
     display: none;
     position: fixed;
