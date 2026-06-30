@@ -284,15 +284,12 @@ function renderCinematics() {
         let mediaHTML = '';
         
         if (item.videoUrl) {
-            // Handle YouTube video embed
             let embedUrl = '';
             const url = item.videoUrl;
             
-            // Check if URL is already an embed URL
             if (url.includes('/embed/')) {
                 embedUrl = url;
             } else {
-                // Extract video ID from different YouTube URL formats
                 let videoId = '';
                 if (url.includes('youtu.be/')) {
                     videoId = url.split('youtu.be/')[1].split('?')[0];
@@ -311,14 +308,20 @@ function renderCinematics() {
                 mediaHTML = `<div class="cinematics-media"><iframe class="cinematics-video" src="${embedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
             }
         } else if (item.imageUrl) {
-            // Handle image
-            mediaHTML = `<div class="cinematics-media"><img class="cinematics-image" src="${item.imageUrl}" alt="Cinematics"></div>`;
+            mediaHTML = `<div class="cinematics-media"><img class="cinematics-image" src="${item.imageUrl}" alt="Cinematics" data-fullscreen="${item.imageUrl}"></div>`;
         }
         
         const descriptionHTML = `<div class="cinematics-description"><p>${item.description}</p></div>`;
         
         card.innerHTML = mediaHTML + descriptionHTML;
         cinematicsDiv.appendChild(card);
+    });
+    
+    document.querySelectorAll('.cinematics-image[data-fullscreen]').forEach(img => {
+        img.addEventListener('click', () => {
+            openImageModal(img.getAttribute('data-fullscreen'));
+        });
+        img.style.cursor = 'pointer';
     });
 }
 
