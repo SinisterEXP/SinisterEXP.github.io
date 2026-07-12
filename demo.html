@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-V65LBVD5X9"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-V65LBVD5X9', {
+                send_page_view: false
+            });
+        </script>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -17,12 +29,13 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+        
         <link rel="icon" type="image/png" href="https://sinisterexp.github.io/assets/images/sxp-logo-2.png" />
         <title>SinisterEXP - Portfolio</title>
         <link rel="stylesheet" href="assets/demo-source/styles.css">
     </head>
 
-    <body>
+    <body data-site-variant="demo">
         <div id="app">
             <div class="top-bar">
                 <div class="site-branding">
@@ -148,6 +161,7 @@
             </div>
             <p class="copyright">&copy; 2026 SinisterEXP (Jason Perkins).<br />All rights reserved.</p>
         </div>
+        <script src="assets/analytics.js"></script>
         <script src="assets/demo-source/main.js"></script>
     </body>
 </html>

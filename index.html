@@ -8,7 +8,9 @@
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-V65LBVD5X9');
+            gtag('config', 'G-V65LBVD5X9', {
+                send_page_view: false
+            });
         </script>
 
         <meta charset="UTF-8">
@@ -33,7 +35,7 @@
         <link rel="stylesheet" href="assets/source/styles.css">
     </head>
 
-    <body>
+    <body data-site-variant="live">
         <div id="app">
             <div class="top-bar">
                 <div class="site-branding">
@@ -161,6 +163,7 @@
             <p class="copyright">&copy; 2026 SinisterEXP (Jason Perkins).<br />All rights reserved.<br /></p>
             <div class="site-by"><small>Website by <a href="https://oakshift.o.uk/">Oakshift Software</a></small></div>
         </div>
+        <script src="assets/analytics.js"></script>
         <script src="assets/source/main.js"></script>
     </body>
 </html>
