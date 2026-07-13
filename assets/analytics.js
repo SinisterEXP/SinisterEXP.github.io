@@ -43,7 +43,7 @@
         lastTrackedPage = pageName;
 
         sendEvent("page_view", {
-            page_title: "SinisterEXP - " + pageName.toUpperCase(),
+            page_title: "SinisterEXP - " + pageName.charAt(0).toUpperCase() + pageName.slice(1),
             page_location: window.location.href,
             page_path: window.location.pathname + window.location.hash,
             page_section: pageName
