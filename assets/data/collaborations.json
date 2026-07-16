@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-07-16T20:00:00Z",
+    "version": "1.1.0",
+    "totalPosts": 1,
+    "fields": {
+      "collaboration": {
+        "title": "string",
+        "work": "array[string]"
+      }
+    }
+  },
+  "collaborations": [
+    {
+        "title": "Maze Theory",
+        "work": [
+            "Ongoing creator partnership with early-access coverage and community engagement",
+            "Active involvement in bug testing and QA feedback during development cycles",
+            "Community moderator within the official Maze Theory Discord",
+            "Voice acting demo submitted and under consideration for future casting opportunities",
+            "Created high-performing content for Peaky Blinders VR, generating over 1,000,000+ views"
+        ]
+    }, 
+    {
+        "title": "VRKiwi",
+        "work": [
+            "Official partner via Xsolla influencer program",
+            "Early-access coverage, reviews, and promotional content for VR titles",
+            "Titles covered include Pirates VR: Jolly Roger and other upcoming releases",
+            "Voice acting demo submitted for potential future collaboration"
+        ]
+    }
+  ]
+}

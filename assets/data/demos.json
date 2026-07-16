@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-07-16T20:00:00Z",
+    "version": "1.1.0",
+    "totalPosts": 1,
+    "fields": {
+      "demo": {
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "thumb": "string"
+      }
+    }
+  },
+  "demos": [
+    {
+        "title": "Extended Orc Character Performance",
+        "description": "Primary showcase. Long-form character voice acting demonstrating grit, range, emotional control, and sustained performance.",
+        "url": "https://youtube.com/shorts/pWudx83pEO0?si=GLTMD0kfv1zQPhy4",
+        "thumb": "assets/images/demo-thumb-1.jpg"
+    },
+    {
+        "title": "Character Voice Acting Demo (2025)",
+        "description": "My official 2025 Voice Acting Demo — featuring 5 original characters across fantasy, horror, and cinematic genres.",
+        "url": "https://www.youtube.com/watch?v=WYjLp9mz4Ew",
+        "thumb": "assets/images/demo-thumb-2.jpg"
+    }
+  ]
+}

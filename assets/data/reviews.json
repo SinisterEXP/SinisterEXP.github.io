@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-07-16T20:00:00Z",
+    "version": "1.1.0",
+    "totalPosts": 1,
+    "fields": {
+      "review": {
+        "title": "string",
+        "work": "array[string]"
+      }
+    }
+  },
+  "reviews": [
+    {
+        "title": "Keymailer & Independent Coverage",
+        "work": [
+            "Covered 15+ indie and VR titles across multiple platforms",
+            "Selected to cover MAVRIX (Red Bull–affiliated project)",
+            "Delivered structured developer feedback including gameplay analysis, usability insights, and player experience improvements",
+            "Experience identifying bugs, balancing issues, and UX friction points during playtesting",
+            "Created promotional and gameplay content aligned with both player engagement and developer visibility"
+        ]
+    }
+  ]
+}

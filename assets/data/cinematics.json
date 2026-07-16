@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-07-16T20:00:00Z",
+    "version": "1.1.0",
+    "totalPosts": 1,
+    "fields": {
+      "cinematic": {
+        "mediaType": "string",
+        "title": "string",
+        "description": "string",
+        "imageUrl": "string",
+        "videoUrl": "string"
+      }
+    }
+  },
+  "cinematics": [
+    {
+        "mediaType": "youtube",
+        "title": "The Templar's Vigil",
+        "description": "A cinematic medieval composition depicting a lone Knight Templar standing watch before a storm-shrouded fortress. Created using visual effects, atmospheric compositing, and digital storytelling techniques.",
+        "videoUrl": "https://youtube.com/shorts/-hmBJwi_MEM?si=6WLdVRftfQ51paJJ"
+    },
+
+    {
+        "mediaType": "image",
+        "title": "Celestial Twilight",
+        "description": "Fantasy Matte Painting",
+        "imageUrl": "https://sinisterexp.github.io/assets/images/gallery/vfx-01.jpg"
+    },
+    {
+        "mediaType": "image",
+        "title": "Kingdom of Valdyrra",
+        "description": "Digital Environment Composite",
+        "imageUrl": "https://sinisterexp.github.io/assets/images/gallery/vfx-02.jpg"
+    },
+    {
+        "mediaType": "image",
+        "title": "Twin Moons",
+        "description": "Fantasy Sky Replacement",
+        "imageUrl": "https://sinisterexp.github.io/assets/images/gallery/vfx-03.jpg"
+    },
+    {
+        "mediaType": "image",
+        "title": "The Forgotten Keep",
+        "description": "Cinematic Matte Painting",
+        "imageUrl": "https://sinisterexp.github.io/assets/images/gallery/vfx-04.jpg"
+    },
+    {
+        "mediaType": "image",
+        "title": "Moonlit Shores",
+        "description": "Fantasy Environment",
+        "imageUrl": "https://sinisterexp.github.io/assets/images/gallery/vfx-05.jpg"
+    },
+    {
+        "mediaType": "image",
+        "title": "The Templar's Vigil",
+        "description": "Cinematic Composite",
+        "imageUrl": "https://sinisterexp.github.io/assets/images/gallery/vfx-06.jpg"
+    }
+  ]
+}

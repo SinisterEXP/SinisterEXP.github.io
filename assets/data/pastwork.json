@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-07-16T20:00:00Z",
+    "version": "1.1.0",
+    "totalPosts": 1,
+    "fields": {
+      "work": {
+        "title": "string",
+        "subtitle": "string",
+        "description": "string"
+      }
+    }
+  },
+  "works": [
+    {
+        "title": "Narrative Voiceover",
+        "subtitle": "Independent Film (Paid) 2nd February 2026",
+        "description": "Delivered a short-form narrative voiceover for an independent film project, completed and paid within 24 hours."
+    },
+    {
+        "title": "Sinister Tales",
+        "subtitle": "Original Narration Series",
+        "description": "Creator, Writer & Lead Narrator for an original dark storytelling series focussed on immersive character-driven performance.<br><br>An expanding project that showcases range across horror, drama and myth-inspired narratives, while refining tone, pacing and emotional delivery for narrative and game-based roles."
+    }
+  ]
+}

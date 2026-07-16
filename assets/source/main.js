@@ -29,6 +29,7 @@ window.addEventListener('hashchange', handleHash);
 document.addEventListener('DOMContentLoaded', handleHash);
 
 // Cinematics & VFX data: Add Your Videos or Images Here
+// [Now Situated At: assets/data/cinematics.json]
 const cinematicsData = [
     // TikTok Videos
     /*
@@ -92,6 +93,7 @@ const cinematicsData = [
 ];
 
 // Demo data: Add Your YouTube Demos Here
+// [Now Situated At: assets/data/demos.json]
 const demoData = [
     {
         title: "Extended Orc Character Performance",
@@ -108,6 +110,7 @@ const demoData = [
 ];
 
 // About blocks for Home Page
+// [Now Situated At: assets/data/about.json]
 const aboutBlocks = [
     {
         header: "Sinister Tales - Narration Showcase",
@@ -118,16 +121,17 @@ const aboutBlocks = [
         img: "assets/images/jason.png"
     },
     {
-        text: `<div style="background-color: #d7c32542; color: #ffffff; padding: 1rem; border-radius: 5px;">Professional voice actor and cinematic creator delivering immersive narration, character performance, and atmospheric storytelling across games, VR, film, and digital media.<br /><br />Alongside voice acting, my original medieval and dark fantasy content has generated over 4 million views across social media in the past month alone, demonstrating strong audience engagement within the fantasy and historical storytelling niche.<br /><br />My work has also surpassed 1 million views on Peaky Blinders VR, and I've collaborated with indie and VR studios to bring distinctive characters and stories to life.</div>`,
+        text: `<div style='background-color: #d7c32542; color: #ffffff; padding: 1rem; border-radius: 5px;'>Professional voice actor and cinematic creator delivering immersive narration, character performance, and atmospheric storytelling across games, VR, film, and digital media.<br /><br />Alongside voice acting, my original medieval and dark fantasy content has generated over 4 million views across social media in the past month alone, demonstrating strong audience engagement within the fantasy and historical storytelling niche.<br /><br />My work has also surpassed 1 million views on Peaky Blinders VR, and I've collaborated with indie and VR studios to bring distinctive characters and stories to life.</div>`,
         img: "assets/images/vabg-1.jpg"
     }
 ];
 
 // Experience data: Add More Past Work Here
+// [Now Situated At: assets/data/pastwork.json]
 const pastWorkData = [
     {
         title: "Narrative Voiceover",
-        subtitle: " Independent Film (Paid) 2nd February 2026",
+        subtitle: "Independent Film (Paid) 2nd February 2026",
         description: `Delivered a short-form narrative voiceover for an independent film project, completed and paid within 24 hours.`
     },
     {
@@ -138,6 +142,7 @@ const pastWorkData = [
 ];
 
 // Experience data: Add More Studio Collaborations Here
+// [Now Situated At: assets/data/collaborations.json]
 const studioCollabsData = [
     {
         title: "Maze Theory",
@@ -161,6 +166,7 @@ const studioCollabsData = [
 ];
 
 // Experience data: Add More Industry Reviews Here
+// [Now Situated At: assets/data/reviews.json]
 const industryReviewsData = [
     {
         title: "Keymailer & Independent Coverage",
