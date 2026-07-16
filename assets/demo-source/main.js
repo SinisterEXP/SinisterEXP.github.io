@@ -28,6 +28,16 @@ function handleHash() {
 window.addEventListener('hashchange', handleHash);
 document.addEventListener('DOMContentLoaded', handleHash);
 
+const dataDomain = "https://sinisterexp.github.io/"; // Base domain for data files
+const dataUrls = {
+    "about": dataDomain+"assets/data/about.json",
+    "cinematics": dataDomain+"assets/data/cinematics.json",
+    "collaborations": dataDomain+"assets/data/collaborations.json",
+    "demos": dataDomain+"assets/data/demos.json",
+    "pastwork": dataDomain+"assets/data/pastwork.json",
+    "reviews": dataDomain+"assets/data/reviews.json"
+};
+
 // Cinematics & VFX data: Add Your Videos or Images Here
 const cinematicsData = [
     // YouTube
