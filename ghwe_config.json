@@ -1,0 +1,17 @@
+{
+    "site_data": {
+        "title": "SinisterEXP",
+        "url": "https://sinisterexp.github.io/"
+    }, 
+    "metadata": {
+        "last_updated": null
+    }, 
+    "json_files": {
+        "about": "assets/data/about.json",
+        "cinematics": "assets/data/cinematics.json",
+        "collaborations": "assets/data/collaborations.json",
+        "demos": "assets/data/demos.json",
+        "pastwork": "assets/data/pastwork.json",
+        "reviews": "assets/data/reviews.json"
+    }
+}
